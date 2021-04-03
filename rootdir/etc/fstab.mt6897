@@ -2,8 +2,8 @@
 # Android fstab file.
 #
 # <src>                           <mnt_point>          <type> <mnt_flags and options>   <fs_mgr_flags>
-system                           /system                erofs   ro   wait,slotselect,avb=vbmeta_system,logical,first_stage_mount,avb_keys=/avb/q-gsi.avbpubkey:/avb/r-gsi.avbpubkey:/avb/s-gsi.avbpubkey
-system                           /system                ext4    noatime,ro   wait,slotselect,avb=vbmeta_system,logical,first_stage_mount,avb_keys=/avb/q-gsi.avbpubkey:/avb/r-gsi.avbpubkey:/avb/s-gsi.avbpubkey
+system                           /system                erofs   ro   wait,slotselect,avb=vbmeta_system,logical,first_stage_mount,avb_keys=/avb/q-gsi.avbpubkey:/avb/r-gsi.avbpubkey:/avb/s-gsi.avbpubkey,readahead_size_kb=128
+system                           /system                ext4    noatime,ro   wait,slotselect,avb=vbmeta_system,logical,first_stage_mount,avb_keys=/avb/q-gsi.avbpubkey:/avb/r-gsi.avbpubkey:/avb/s-gsi.avbpubkey,readahead_size_kb=128
 system_ext                       /system_ext            erofs   ro   wait,slotselect,avb,logical,first_stage_mount
 system_ext                       /system_ext            ext4    noatime,ro   wait,slotselect,avb,logical,first_stage_mount
 vendor                           /vendor                erofs   ro   wait,slotselect,avb,logical,first_stage_mount
@@ -30,7 +30,7 @@ system_dlkm                      /system_dlkm           ext4    noatime,ro   wai
 
 # Userdata
 /dev/block/by-name/metadata      /metadata              f2fs    noatime,nosuid,nodev,discard   wait,check,formattable,first_stage_mount
-/dev/block/by-name/userdata      /data                  f2fs    noatime,nosuid,nodev,gc_merge,discard,noflush_merge,fsync_mode=nobarrier,reserve_root=134217,resgid=1065,inlinecrypt   wait,check,formattable,quota,latemount,reservedsize=128m,checkpoint=fs,fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized,keydirectory=/metadata/vold/metadata_encryption,fsverity,sysfs_path=/sys/devices/platform/soc/112b0000.ufshci
+/dev/block/by-name/userdata      /data                  f2fs    noatime,nosuid,nodev,gc_merge,discard,noflush_merge,fsync_mode=nobarrier,reserve_root=134217,resgid=1065,inlinecrypt   wait,check,formattable,quota,latemount,reservedsize=128m,checkpoint=fs,fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized,keydirectory=/metadata/vold/metadata_encryption,fsverity,sysfs_path=/sys/devices/platform/soc/112b0000.ufshci,readahead_size_kb=128
 
 # Firmware
 /dev/block/by-name/apusys1       /apusys1            emmc   defaults   defaults
