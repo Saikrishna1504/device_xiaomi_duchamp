@@ -72,6 +72,9 @@ on property:sys.boot_completed=1
     setprop persist.sys.zram_enabled 1
     swapon_all /vendor/etc/fstab.mt6897
 
+    # Adjust watermark level
+    write /proc/sys/vm/watermark_scale_factor 200
+
     write /proc/sys/kernel/sched_migration_cost_ns 200000
 
     # restore boot perf. tune
