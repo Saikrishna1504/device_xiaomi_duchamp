@@ -88,6 +88,7 @@ PRODUCT_PACKAGES += \
     audio_policy.stub
 
 PRODUCT_PACKAGES += \
+    BesLoudness \
     MtkInCallService
 
 PRODUCT_COPY_FILES += \
