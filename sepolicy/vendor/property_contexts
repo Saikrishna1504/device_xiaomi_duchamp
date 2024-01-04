@@ -46,3 +46,7 @@ ro.vendor.sensors.xiaomi.                      u:object_r:vendor_mtk_sensor_prop
 
 # Thermal
 vendor.sys.thermal.                            u:object_r:vendor_thermal_prop:s0
+
+# Miuicamera
+ro.vendor.audio.us.proximity             u:object_r:vendor_us_proximity_prop:s0 exact bool
+ro.vendor.display.type                   u:object_r:vendor_display_type_prop:s0 exact string
