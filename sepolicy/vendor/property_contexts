@@ -50,3 +50,8 @@ persist.vendor.sensors.used.framebuffer  u:object_r:vendor_hal_citsensorservice_
 
 # Thermal
 vendor.sys.thermal.data.path             u:object_r:vendor_thermal_prop:s0
+
+
+# Miuicamera
+ro.vendor.audio.us.proximity             u:object_r:vendor_us_proximity_prop:s0 exact bool
+ro.vendor.display.type                   u:object_r:vendor_display_type_prop:s0 exact string
