@@ -8,8 +8,17 @@ binder_call(parts_app, vendor_hal_displayfeature)
 
 allow parts_app {
     activity_service
+    activity_task_service
+    audio_service
+    autofill_service
     content_capture_service
+    gpu_service
+    launcherapps_service
     netstats_service
+    role_service
+    sensitive_content_protection_service
+    vendor_hal_displayfeature_service
+    voiceinteraction_service
 }:service_manager find;
 
 allow parts_app system_app_data_file:dir create_dir_perms;
@@ -18,4 +27,4 @@ allow parts_app system_app_data_file:{
     lnk_file
 } create_file_perms;
 
-allow parts_app vendor_hal_displayfeature_service:service_manager find;
+rw_dir_file(parts_app, sysfs_therm)

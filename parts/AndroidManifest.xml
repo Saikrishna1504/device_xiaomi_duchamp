@@ -11,12 +11,17 @@
     android:sharedUserId="android.uid.system">
 
     <uses-permission android:name="android.permission.ACCESS_SURFACE_FLINGER" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS" />
 
     <application
+        android:icon="@mipmap/ic_launcher"
+        android:theme="@style/Theme.SubSettingsBase"
         android:label="@string/device_settings_app_name"
         android:persistent="true"
         android:defaultToDeviceProtectedStorage="true"
@@ -37,5 +42,28 @@
             android:permission="ColorModeService">
         </service>
 
+	<service
+            android:name=".thermal.ThermalService"
+            android:exported="true"
+            android:permission="ThermalService">
+	</service>
+
+        <activity
+            android:name=".thermal.ThermalActivity"
+            android:exported="false"
+            android:label="@string/thermal_title">
+            <intent-filter>
+                <action android:name="com.android.settings.action.IA_SETTINGS" />
+            </intent-filter>
+            <meta-data
+                android:name="com.android.settings.category"
+                android:value="com.android.settings.category.ia.battery" />
+            <meta-data
+                android:name="com.android.settings.summary"
+                android:resource="@string/thermal_summary" />
+            <meta-data
+                android:name="com.android.settings.order"
+                android:value="1" />
+        </activity>
     </application>
 </manifest>
