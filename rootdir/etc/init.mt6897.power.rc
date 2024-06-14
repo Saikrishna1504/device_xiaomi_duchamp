@@ -32,6 +32,13 @@ on init
     # disable proactive compaction
     write /proc/sys/vm/compaction_proactiveness 0
 
+    # Make foreground and background I/O priority different. none-to-rt was
+    # introduced in kernel 5.14. promote-to-rt was introduced in kernel 6.5.
+    # Write none-to-rt first and promote-to-rt next to support both older and
+    # newer kernel versions.
+    write /dev/blkio/blkio.prio.class none-to-rt
+    write /dev/blkio/blkio.prio.class promote-to-rt
+
 on post-fs-data
     # Disable watermark boost
     write /proc/sys/vm/watermark_boost_factor 0
