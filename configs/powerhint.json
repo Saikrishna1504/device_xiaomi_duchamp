@@ -385,6 +385,7 @@
       "Path": "/dev/cpuctl/top-app/cpu.uclamp.min",
       "Values": [
         "0",
+        "10",
         "100"
       ],
       "DefaultIndex": 0,
@@ -454,6 +455,12 @@
       "Node": "CPUMidClusterMinFreq",
       "Duration": 0,
       "Value": "1300000"
+    },
+    {
+      "PowerHint": "INTERACTION",
+      "Node": "UclampTAMin",
+      "Duration": 0,
+      "Value": "10"
     },
     {
       "PowerHint": "LAUNCH",
