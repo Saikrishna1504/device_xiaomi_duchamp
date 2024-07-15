@@ -1734,9 +1734,9 @@ vendor/mitee/ta/e97c270e-a5c4-4c58-bcd3384a2fa2539e.ta
 vendor/mitee/ta/f13010e0-2ae1-11e5-896a0002a5d5c51d.ta
 
 # Vibrator
-odm/bin/hw/vendor.xiaomi.hardware.vibratorfeature.service
-odm/etc/init/vendor.xiaomi.hardware.vibratorfeature.service.rc
-odm/etc/vintf/manifest/vendor.xiaomi.hardware.vibratorfeature.service.xml
+odm/bin/hw/vendor.xiaomi.hardware.vibratorfeature.service:vendor/bin/hw/vendor.xiaomi.hardware.vibratorfeature.service
+odm/etc/init/vendor.xiaomi.hardware.vibratorfeature.service.rc:vendor/etc/init/vendor.xiaomi.hardware.vibratorfeature.service.rc
+odm/etc/vintf/manifest/vendor.xiaomi.hardware.vibratorfeature.service.xml:vendor/etc/vintf/manifest/vendor.xiaomi.hardware.vibratorfeature.service.xml
 odm/lib64/vendor.awa.wavelib.so
 vendor/etc/excluded-input-devices.xml
 vendor/lib64/vendor.hardware.vibratorfeature.IVibratorExt-V1-ndk.so

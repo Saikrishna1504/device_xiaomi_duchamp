@@ -123,8 +123,10 @@ blob_fixups: blob_fixups_user_type = {
         .apktool_patch('blob-patches/MIUICamera/'),
 
     'vendor/etc/vintf/manifest/manifest_media_c2_V1_2_default.xml': blob_fixup()
-        .regex_replace('.+dolby.+\n', '')
+        .regex_replace('.+dolby.+\n', ''),
 
+    'vendor/etc/init/vendor.xiaomi.hardware.vibratorfeature.service.rc': blob_fixup()
+        .regex_replace('odm', 'vendor'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
