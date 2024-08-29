@@ -99,10 +99,6 @@ class XiaomiMt6897UdfpsHander : public UdfpsHandler {
         touch_fd_ = android::base::unique_fd(open(TOUCH_DEV_PATH, O_RDWR));
         disp_fd_ = android::base::unique_fd(open(DISP_FEATURE_PATH, O_RDWR));
 
-        std::string fpVendor = android::base::GetProperty("persist.vendor.sys.fp.vendor", "none");
-        LOG(DEBUG) << __func__ << "fingerprint vendor is: " << fpVendor;
-        isFpcFod = fpVendor == "fpc_fod";
-
         // Thread to notify fingeprint hwmodule about fod presses
         std::thread([this]() {
             int fd = open(FOD_PRESS_STATUS_PATH, O_RDONLY);
