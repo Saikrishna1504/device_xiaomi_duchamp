@@ -15,7 +15,7 @@
      limitations under the License.
 -->
 <permissions>
-    <privapp-permissions package="com.xiaomi.settings">
+    <privapp-permissions package="org.lineageos.settings">
         <permission name="android.permission.WRITE_SECURE_SETTINGS"/>
     </privapp-permissions>
 </permissions>
