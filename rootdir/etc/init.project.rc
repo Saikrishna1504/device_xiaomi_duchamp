@@ -54,21 +54,32 @@ on post-fs-data
     # Thermal
     mkdir /data/vendor/thermal 0771 root system
     mkdir /data/vendor/thermal/config 0771 root system
+    chmod 0664 /sys/class/thermal/thermal_message/sconfig
     chown system system /sys/class/thermal/thermal_message/sconfig
+    chmod 0664 /sys/class/thermal/thermal_message/market_download_limit
     chown system system /sys/class/thermal/thermal_message/market_download_limit
+    chmod 0664 /sys/class/thermal/thermal_message/boost
     chown system system /sys/class/thermal/thermal_message/boost
+    chmod 0664 /sys/class/thermal/thermal_message/temp_state
     chown system system /sys/class/thermal/thermal_message/temp_state
+    chmod 0664 /sys/class/thermal/thermal_message/thermal_max_brightness
     chown system system /sys/class/thermal/thermal_message/thermal_max_brightness
+    chmod 0664 /sys/class/thermal/thermal_message/flash_state
     chown cameraserver cameraserver /sys/class/thermal/thermal_message/flash_state
+    chmod 0664 /sys/class/thermal/thermal_message/balance_mode
     chown system system /sys/class/thermal/thermal_message/balance_mode
+    chmod 0664 /sys/class/thermal/thermal_message/connsys_limit
     chown system system /sys/class/thermal/thermal_message/connsys_limit
+    chmod 0664 /sys/class/thermal/power_save/powersave_mode
     chown system system /sys/class/thermal/power_save/powersave_mode
+    chmod 0664 /sys/class/thermal/power_save/power_level
     chown system system /sys/class/thermal/power_save/power_level
-    chown system system /sys/class/mi_display/disp-DSI-0/thermal_hbm_disabled
     chmod 0664 /sys/class/mi_display/disp-DSI-0/thermal_hbm_disabled
+    chown system system /sys/class/mi_display/disp-DSI-0/thermal_hbm_disabled
+    chmod 0664 /sys/class/thermal/thermal_message/charger_temp
     chown system system /sys/class/thermal/thermal_message/charger_temp
-    chown system system /sys/class/power_supply/battery/constant_charge_current
     chmod 0664 /sys/class/power_supply/battery/constant_charge_current
+    chown system system /sys/class/power_supply/battery/constant_charge_current
 
     # Power
     chown root system /sys/devices/system/cpu/sched_ctl/sched_util_est_ctrl
