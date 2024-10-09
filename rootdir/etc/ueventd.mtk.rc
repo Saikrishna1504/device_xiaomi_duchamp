@@ -257,3 +257,6 @@ subsystem mi_display
     dirname /dev/mi_display
 
 /dev/mi_display/*         0666   root       graphics
+
+# Battery
+/sys/class/power_supply/battery input_suspend 0660 system system
