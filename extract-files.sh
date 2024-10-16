@@ -120,6 +120,7 @@ function blob_fixup {
             "${PATCHELF}" --replace-needed "android.hardware.biometrics.common-V3-ndk.so" "android.hardware.biometrics.common-V4-ndk.so" "${2}"
             "${PATCHELF}" --replace-needed "android.hardware.biometrics.fingerprint-V3-ndk.so" "android.hardware.biometrics.fingerprint-V4-ndk.so" "${2}"
             ;;
+        system_ext/lib64/vendor.mediatek.hardware.camera.isphal-V1-ndk.so|\
         vendor/bin/hw/mt6897/android.hardware.graphics.allocator-V2-service-mediatek.mt6897|\
         vendor/lib64/egl/mt6897/libGLES_mali.so|\
         vendor/lib64/hw/mt6897/android.hardware.graphics.allocator-V2-mediatek.so|\
@@ -147,6 +148,16 @@ function blob_fixup {
             [ "$2" = "" ] && return 0
             "${PATCHELF}" --replace-needed "android.hardware.graphics.allocator-V1-ndk.so" "android.hardware.graphics.allocator-V2-ndk.so" "${2}"
             "${PATCHELF}" --replace-needed "android.hardware.graphics.common-V4-ndk.so" "android.hardware.graphics.common-V5-ndk.so" "${2}"
+            ;;
+        system_ext/lib64/libcamera_algoup_jni.xiaomi.so|\
+        system_ext/lib64/libcamera_mianode_jni.xiaomi.so|\
+        system_ext/lib64/libcamera_ispinterface_jni.xiaomi.so)
+            [ "$2" = "" ] && return 0
+            "${PATCHELF}" --add-needed "libgui_shim_miuicamera.so" "${2}"
+            ;;
+        system_ext/priv-app/MiuiCamera/MiuiCamera.apk)
+            [ "$2" = "" ] && return 0
+            apktool_patch "${2}" "${MY_DIR}/blob-patches/MIUICamera.patch"
             ;;
         *)
             return 1

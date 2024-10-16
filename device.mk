@@ -339,5 +339,13 @@ PRODUCT_PACKAGES += \
     libwifi-hal-wrapper \
     wpa_supplicant
 
+# Miui Camera Permissions
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/privapp-permissions-miuicamera.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-permissions-miuicamera.xml
+
+# Sysconfig
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/miuicamera-hiddenapi-package-allowlist.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/sysconfig/miuicamera-hiddenapi-package-allowlist.xml
+
 # Inherit the proprietary files
 $(call inherit-product, vendor/xiaomi/duchamp/duchamp-vendor.mk)
