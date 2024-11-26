@@ -212,9 +212,7 @@ vendor/bin/batterysecret
 
 # Bluetooth
 vendor/bin/hw/android.hardware.bluetooth-service-mediatek
-vendor/bin/hw/android.hardware.bluetooth@1.1-service-mediatek
 vendor/etc/init/android.hardware.bluetooth-service-mediatek.rc
-vendor/etc/init/android.hardware.bluetooth@1.1-service-mediatek.rc
 vendor/etc/init/init.bt_drv.rc
 vendor/etc/vintf/manifest/android.hardware.bluetooth-service-mediatek.xml
 vendor/firmware/BT_FW.cfg
