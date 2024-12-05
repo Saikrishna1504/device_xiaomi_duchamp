@@ -37,6 +37,9 @@ vendor/lib64/libcvsd_mtk.so
 vendor/lib64/libfvaudio.so
 vendor/lib64/libladder.so
 vendor/lib64/libmbrainSDKv.so
+vendor/lib64/libmisound.so
+vendor/lib64/libmisoundcrossfade.so;FIX_SONAME
+vendor/lib64/libmisoundfpsop.so
 vendor/lib64/libmispowerop.so
 vendor/lib64/libmsbc_mtk.so
 vendor/lib64/libmtklimiter_vendor.so
@@ -185,6 +188,8 @@ vendor/etc/audio_param/VolumeGainMap_ParamUnitDesc.xml
 vendor/etc/audio_param/Volume_AudioParam.xml
 vendor/etc/audio_param/Volume_ParamUnitDesc.xml
 vendor/etc/audiodata.db
+vendor/etc/misound_res_headphone.bin
+vendor/etc/misound_res_spk.bin
 
 # Audio (Dolby)
 vendor/bin/hw/vendor.dolby.hardware.dms@2.0-service
