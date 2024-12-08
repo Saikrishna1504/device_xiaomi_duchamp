@@ -17,6 +17,9 @@ $(call inherit-product, vendor/voltage/config/common_full_phone.mk)
 # Official-ify
 VOLTAGE_BUILD_TYPE := UNOFFICIAL
 
+# Boot animation
+TARGET_BOOT_ANIMATION_RES := 1920
+
 # UDFPS animations
 EXTRA_UDFPS_ANIMATIONS := true
 
