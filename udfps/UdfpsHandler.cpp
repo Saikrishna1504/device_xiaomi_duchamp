@@ -35,30 +35,9 @@
 
 #define DISP_FEATURE_PATH "/dev/mi_display/disp_feature"
 
-#define FOD_PRESS_STATUS_PATH "/sys/class/touch/touch_dev/fod_press_status"
-
 using ::aidl::android::hardware::biometrics::fingerprint::AcquiredInfo;
 
 namespace {
-
-static bool readBool(int fd) {
-    char c;
-    int rc;
-
-    rc = lseek(fd, 0, SEEK_SET);
-    if (rc) {
-        LOG(ERROR) << "failed to seek fd, err: " << rc;
-        return false;
-    }
-
-    rc = read(fd, &c, sizeof(char));
-    if (rc != 1) {
-        LOG(ERROR) << "failed to read bool from fd, err: " << rc;
-        return false;
-    }
-
-    return c != '0';
-}
 
 static std::shared_ptr<disp_event_resp> parseDispEvent(int fd) {
     disp_event header;
@@ -104,33 +83,6 @@ class XiaomiMt6897UdfpsHandler : public UdfpsHandler {
         mDevice = device;
         touch_fd_ = android::base::unique_fd(open(TOUCH_DEV_PATH, O_RDWR));
         disp_fd_ = android::base::unique_fd(open(DISP_FEATURE_PATH, O_RDWR));
-
-        // Thread to notify fingeprint hwmodule about fod presses
-        std::thread([this]() {
-            android::base::unique_fd fd(open(FOD_PRESS_STATUS_PATH, O_RDONLY));
-            if (fd < 0) {
-                LOG(ERROR) << "failed to open " << FOD_PRESS_STATUS_PATH << " , err: " << fd;
-                return;
-            }
-
-            struct pollfd fodPressStatusPoll = {
-                    .fd = fd.get(),
-                    .events = POLLERR | POLLPRI,
-                    .revents = 0,
-            };
-
-            while (true) {
-                int rc = poll(&fodPressStatusPoll, 1, -1);
-                if (rc < 0) {
-                    LOG(ERROR) << "failed to poll " << FOD_PRESS_STATUS_PATH << ", err: " << rc;
-                    continue;
-                }
-
-                bool pressed = readBool(fd);
-                mDevice->extCmd(mDevice, COMMAND_FOD_PRESS_STATUS,
-                                pressed ? PARAM_FOD_PRESSED : PARAM_FOD_RELEASED);
-            }
-        }).detach();
 
         // Thread to listen for fod ui changes
         std::thread([this]() {
@@ -188,6 +140,8 @@ class XiaomiMt6897UdfpsHandler : public UdfpsHandler {
     void onFingerDown(uint32_t x, uint32_t y, float /*minor*/, float /*major*/) {
         LOG(DEBUG) << __func__ << "x: " << x << ", y: " << y;
 
+        mDevice->extCmd(mDevice, COMMAND_FOD_PRESS_STATUS, PARAM_FOD_PRESSED);
+
         // Request HBM
         struct disp_local_hbm_req displayLhbmRequest = {
                 .base = displayBasePrimary,
@@ -201,6 +155,8 @@ class XiaomiMt6897UdfpsHandler : public UdfpsHandler {
 
     void onFingerUp() {
         LOG(DEBUG) << __func__;
+
+        mDevice->extCmd(mDevice, COMMAND_FOD_PRESS_STATUS, PARAM_FOD_RELEASED);
 
         // Disable HBM
         struct disp_local_hbm_req displayLhbmRequest = {
