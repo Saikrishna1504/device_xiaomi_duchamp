@@ -272,6 +272,7 @@ PRODUCT_PACKAGES += \
     fstab.mt6897.vendor_ramdisk \
     init.batterysecret.rc \
     init.connectivity.rc \
+    init.fingerprint.rc \
     init.insmod.sh \
     init.mi_thermald.rc \
     init.modem.rc \
