@@ -668,7 +668,6 @@ on post-fs-data
     # END Audio_DataWhale
 
 on early-boot
-    verity_update_state
 
     chown root log /proc/ccci_sib
     chown root system /proc/ccci_dump
