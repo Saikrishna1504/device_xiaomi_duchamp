@@ -233,6 +233,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.power-service.lineage-libperfmgr \
     libmtkperf_client_vendor \
+    libperfctl_vendor \
     libpowerhalwrap_vendor
 
 PRODUCT_COPY_FILES += \
