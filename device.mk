@@ -182,6 +182,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     XiaomiParts
 
+# MiuiCamera
+PRODUCT_PACKAGES += \
+    MiuiCameraOverlayIcon
+
 # Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
