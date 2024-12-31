@@ -33,8 +33,8 @@ PRODUCT_MODEL := 2311DRK48G
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    BuildDesc="duchamp_global-user 14 UP1A.230905.011 V816.0.12.0.UNLMIXM release-keys" \
+    BuildDesc="duchamp_global-user 14 UP1A.230905.011 V816.0.14.0.UNLMIXM release-keys" \
     DeviceProduct=duchamp_global \
     SystemName=duchamp_global
 
-BUILD_FINGERPRINT := POCO/duchamp_global/duchamp:14/UP1A.230905.011/V816.0.12.0.UNLMIXM:user/release-keys
+BUILD_FINGERPRINT := POCO/duchamp_global/duchamp:14/UP1A.230905.011/V816.0.14.0.UNLMIXM:user/release-keys
