@@ -1408,7 +1408,7 @@ odm/lib64/libmfido_mitee.so
 vendor/lib64/vendor.xiaomi.hardware.mfidoca-V1-ndk.so
 
 # MiuiCamera
-product/priv-app/MiuiCamera/MiuiCamera.apk:system_ext/priv-app/MiuiCamera/MiuiCamera.apk
+product/priv-app/MiuiCamera/MiuiCamera.apk:system_ext/priv-app/MiuiCamera/MiuiCamera.apk;OVERRIDES=Aperture
 system_ext/lib64/libcamera_algoup_jni.xiaomi.so
 system_ext/lib64/libcamera_mianode_jni.xiaomi.so
 system_ext/lib64/libcamera_ispinterface_jni.xiaomi.so
