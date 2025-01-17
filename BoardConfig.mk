@@ -133,6 +133,7 @@ TARGET_BOARD_PLATFORM := mt6897
 # Properties
 TARGET_ODM_PROP += $(DEVICE_PATH)/odm.prop
 TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
+TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 
 # Recovery
 BOARD_INCLUDE_RECOVERY_RAMDISK_IN_VENDOR_BOOT := true
@@ -154,6 +155,9 @@ include device/mediatek/sepolicy_vndr/SEPolicy.mk
 BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
 SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/private
 SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/public
+
+# MiuiCamera
+CAMERA_PACKAGE_NAME := com.android.camera
 
 # Verified Boot
 BOARD_AVB_ENABLE := true
