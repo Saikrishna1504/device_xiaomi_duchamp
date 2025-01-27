@@ -164,11 +164,6 @@ VENDOR_SECURITY_PATCH := 2024-12-01
 include device/mediatek/sepolicy_vndr/SEPolicy.mk
 BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
 
-# Touch
-SOONG_CONFIG_NAMESPACES += XIAOMI_TOUCH
-SOONG_CONFIG_XIAOMI_TOUCH := HIGH_TOUCH_POLLING_PATH
-SOONG_CONFIG_XIAOMI_TOUCH_HIGH_TOUCH_POLLING_PATH := /sys/devices/platform/goodix_ts.0/switch_report_rate
-
 # Lineage Health
 TARGET_HEALTH_CHARGING_CONTROL_SUPPORTS_BYPASS := false
 
