@@ -24,6 +24,7 @@ package org.lineageos.settings;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.hardware.display.DisplayManager;
 import android.util.Log;
 import android.view.Display;
@@ -32,6 +33,8 @@ import android.view.Display.HdrCapabilities;
 import org.lineageos.settings.doze.DozeUtils;
 import org.lineageos.settings.thermal.ThermalUtils;
 import org.lineageos.settings.refreshrate.RefreshUtils;
+import org.lineageos.settings.touchsampling.TouchSamplingUtils;
+import org.lineageos.settings.touchsampling.TouchSamplingService;
 
 public class BootCompletedReceiver extends BroadcastReceiver {
     private static final String TAG = "XiaomiParts";
@@ -39,21 +42,62 @@ public class BootCompletedReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(final Context context, Intent intent) {
-        if (!intent.getAction().equals(Intent.ACTION_BOOT_COMPLETED)) {
-            return;
+        if (DEBUG) Log.i(TAG, "Received intent: " + intent.getAction());
+        switch (intent.getAction()) {
+            case Intent.ACTION_LOCKED_BOOT_COMPLETED:
+                handleLockedBootCompleted(context);
+                break;
+            case Intent.ACTION_BOOT_COMPLETED:
+                handleBootCompleted(context);
+                break;
         }
-        if (DEBUG)
-            Log.d(TAG, "Received boot completed intent");
+    }
+    private void handleLockedBootCompleted(Context context) {
+        if (DEBUG) Log.i(TAG, "Handling locked boot completed.");
+        try {
+        // Start necessary services
+        startServices(context);
+
+        // Override HDR types
+        overrideHdrTypes(context);
 
         // Call LineageOS functionalities
         DozeUtils.onBootCompleted(context);
         ThermalUtils.startService(context);
         RefreshUtils.startService(context);
+        TouchSamplingUtils.restoreSamplingValue(context);
+        } catch (Exception e) {
+            Log.e(TAG, "Error during locked boot completed processing", e);
+        }
+    }
 
-        // Override HDR types to enable Dolby Vision
-        final DisplayManager displayManager = context.getSystemService(DisplayManager.class);
-        displayManager.overrideHdrTypes(Display.DEFAULT_DISPLAY,
-                new int[] {HdrCapabilities.HDR_TYPE_DOLBY_VISION, HdrCapabilities.HDR_TYPE_HDR10,
-                        HdrCapabilities.HDR_TYPE_HLG, HdrCapabilities.HDR_TYPE_HDR10_PLUS});
+    private void handleBootCompleted(Context context) {
+        if (DEBUG) Log.i(TAG, "Handling boot completed.");
+        // Add additional boot-completed actions if needed
+    }
+
+    private void startServices(Context context) {
+        if (DEBUG) Log.i(TAG, "Starting services...");
+
+        // Start Touch Sampling Service
+        context.startServiceAsUser(new Intent(context, TouchSamplingService.class), UserHandle.CURRENT);
+    }
+    private void overrideHdrTypes(Context context) {
+        try {
+            final DisplayManager dm = context.getSystemService(DisplayManager.class);
+            if (dm != null) {
+                dm.overrideHdrTypes(Display.DEFAULT_DISPLAY, new int[]{
+                        HdrCapabilities.HDR_TYPE_DOLBY_VISION,
+                        HdrCapabilities.HDR_TYPE_HDR10,
+                        HdrCapabilities.HDR_TYPE_HLG,
+                        HdrCapabilities.HDR_TYPE_HDR10_PLUS
+                });
+                if (DEBUG) Log.i(TAG, "HDR types overridden successfully.");
+            }
+        } catch (Exception e) {
+            Log.e(TAG, "Error overriding HDR types", e);
+        }
+    }
+
     }
 }

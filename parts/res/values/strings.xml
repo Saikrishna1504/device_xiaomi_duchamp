@@ -46,4 +46,15 @@
    <string name="clear_speaker_summary">Play a 30-second audio to clear the speaker</string>
    <string name="clear_speaker_description">Run this feature once or twice if you find that your speaker is lightly blocked by dust. Set media volume to maximum.\n\nIf the speaker is blocked heavily, run this feature 2-5 times while shaking your device with the speaker facing downwards.</string>
 
+    <!-- Strings related to High Touch Polling -->
+    <!-- Title for the High Touch Responsiveness feature -->
+    <string name="htsr_title">Enhanced Touch Responsiveness</string>
+
+    <!-- Title for enabling High Touch Polling Rate -->
+    <string name="htsr_enable_title">Enable High Touch Polling Rate</string>
+
+    <!-- Description for High Touch Polling Rate -->
+    <string name="htsr_enable_summary">
+        Boosts the touch polling rate to reduce input latency, delivering a smoother and more responsive user experience.
+    </string>
 </resources>

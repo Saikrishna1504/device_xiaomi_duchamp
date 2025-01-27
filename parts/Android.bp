@@ -6,6 +6,9 @@
 
 android_app {
     name: "XiaomiParts",
+    defaults: [
+        "SettingsLibDefaults",
+    ],
     certificate: "platform",
     srcs: ["src/**/*.java"],
     platform_apis: true,
@@ -14,7 +17,6 @@ android_app {
     static_libs: [
         "androidx.core_core",
         "org.lineageos.settings.resources",
-        "SettingsLib",
     ],
     required: [
         "privapp_whitelist_org.lineageos.settings.xml",
