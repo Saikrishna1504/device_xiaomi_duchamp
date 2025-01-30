@@ -1,0 +1,28 @@
+From bae8b5a2e80a515060953aba84cffaf7c9d9f332 Mon Sep 17 00:00:00 2001
+From: Arian <arian.kulmer@web.de>
+Date: Thu, 30 Jan 2025 03:19:16 +0000
+Subject: [PATCH] Start gallery as a new task When launched from lockscreen
+ user will have to unlock for the gallery to be opened, then the gallery is
+ living in the camera process which is wrong. Let it create a new task for it.
+
+Signed-off-by: Saikrishna1504 <saikrishna26918@gmail.com>
+---
+ smali/com/android/camera/t3.smali | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/smali/com/android/camera/t3.smali b/smali/com/android/camera/t3.smali
+index 5f40e017..c551c1d3 100644
+--- a/smali/com/android/camera/t3.smali
++++ b/smali/com/android/camera/t3.smali
+@@ -1098,6 +1098,11 @@
+ 
+     invoke-virtual {p0, v0}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
+ 
++    # FLAG_ACTIVITY_NEW_TASK
++    const v0, 0x10000000
++
++    invoke-virtual {p0, v0}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
++
+     invoke-virtual {p1, p0}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
+ 
+     invoke-virtual {p1}, Lcom/android/camera/ActivityBase;->Vb()V
