@@ -1,0 +1,33 @@
+From 02eca938b38320f88c8b8edbe95484f45d66249f Mon Sep 17 00:00:00 2001
+From: Arian <arian.kulmer@web.de>
+Date: Thu, 30 Jan 2025 03:27:27 +0000
+Subject: [PATCH] Change com.android.camera.action.REVIEW to
+ android.provider.action.REVIEW This is the standard intent for review actions
+
+Signed-off-by: Saikrishna1504 <saikrishna26918@gmail.com>
+---
+ smali/com/android/camera/t3.smali | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/smali/com/android/camera/t3.smali b/smali/com/android/camera/t3.smali
+index c551c1d3..218d1249 100644
+--- a/smali/com/android/camera/t3.smali
++++ b/smali/com/android/camera/t3.smali
+@@ -1138,7 +1138,7 @@
+ 
+     move-result p0
+ 
+-    const-string v0, "com.android.camera.action.REVIEW"
++    const-string v0, "android.provider.action.REVIEW"
+ 
+     if-eqz p0, :cond_0
+ 
+@@ -1199,7 +1199,7 @@
+ 
+     const-string p1, "GalleryHelper"
+ 
+-    const-string v1, "gotoGallery: com.android.camera.action.REVIEW"
++    const-string v1, "gotoGallery: android.provider.action.REVIEW"
+ 
+     invoke-static {p1, v1, p0}, Lcom/android/camera/log/Log;->d(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V
+ 

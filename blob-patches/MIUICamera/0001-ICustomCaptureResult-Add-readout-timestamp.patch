@@ -1,0 +1,78 @@
+From 89c1a16e22429d5d5aecad0cf4e1b789403a81ee Mon Sep 17 00:00:00 2001
+From: Arian <arian.kulmer@web.de>
+Date: Mon, 13 Mar 2023 15:46:13 +0100
+Subject: [PATCH] ICustomCaptureResult: Add readout timestamp
+
+commit [1] added two arguments to the CaptureResultExtras constructor.
+Patch MiuiCamera to provide these arguments
+
+https://github.com/LineageOS/android_frameworks_base/commit/91e7522cb28d2b1e2e12adc8726db8190d711f2e
+Signed-off-by: Saikrishna1504 <saikrishna26918@gmail.com>
+---
+ .../protocol/ICustomCaptureResult.smali       | 32 +++++++++++++++++--
+ 1 file changed, 30 insertions(+), 2 deletions(-)
+
+diff --git a/smali_classes4/com/xiaomi/protocol/ICustomCaptureResult.smali b/smali_classes4/com/xiaomi/protocol/ICustomCaptureResult.smali
+index 93f9e486f..3913d8cac 100644
+--- a/smali_classes4/com/xiaomi/protocol/ICustomCaptureResult.smali
++++ b/smali_classes4/com/xiaomi/protocol/ICustomCaptureResult.smali
+@@ -322,7 +322,7 @@
+ .end method
+ 
+ .method public static toTotalCaptureResult(Lcom/xiaomi/protocol/ICustomCaptureResult;IZ)Landroid/hardware/camera2/TotalCaptureResult;
+-    .locals 22
++    .locals 26
+ 
+     const-string v0, "|"
+ 
+@@ -408,7 +408,7 @@
+ 
+     if-lt v0, v6, :cond_0
+ 
+-    const/16 v0, 0xb
++    const/16 v0, 0xd
+ 
+     :try_start_1
+     new-array v6, v0, [Ljava/lang/Class;
+@@ -444,6 +444,18 @@
+ 
+     aput-object v19, v6, v20
+ 
++    sget-object v19, Ljava/lang/Boolean;->TYPE:Ljava/lang/Class;
++
++    const/16 v22, 0xb
++
++    aput-object v19, v6, v22
++
++    sget-object v19, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
++
++    const/16 v23, 0xc
++
++    aput-object v19, v6, v23
++
+     .line 8
+     invoke-virtual {v5, v6}, Ljava/lang/Class;->getDeclaredConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
+ 
+@@ -519,6 +531,22 @@
+ 
+     aput-object v18, v0, v20
+ 
++    const/16 v24, 0x0
++
++    invoke-static/range {v24 .. v24}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
++
++    move-result-object v19
++
++    aput-object v19, v0, v22
++
++    const/16 v25, 0x0
++
++    invoke-static/range {v25 .. v25}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
++
++    move-result-object v19
++
++    aput-object v19, v0, v23
++
+     .line 11
+     invoke-virtual {v6, v0}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
+ 

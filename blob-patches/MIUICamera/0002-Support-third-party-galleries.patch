@@ -1,0 +1,70 @@
+From 588c7363074e08839b3b18cf2983b5b43897deab Mon Sep 17 00:00:00 2001
+From: Arian <arian.kulmer@web.de>
+Date: Thu, 30 Jan 2025 03:17:24 +0000
+Subject: [PATCH] Support third party galleries
+
+Signed-off-by: Saikrishna1504 <saikrishna26918@gmail.com>
+---
+ smali/com/android/camera/t3.smali             |  7 ++----
+ .../provider/ParallelProcessProvider.smali    | 22 -------------------
+ 2 files changed, 2 insertions(+), 27 deletions(-)
+
+diff --git a/smali/com/android/camera/t3.smali b/smali/com/android/camera/t3.smali
+index 18d651393..5f40e0171 100644
+--- a/smali/com/android/camera/t3.smali
++++ b/smali/com/android/camera/t3.smali
+@@ -1094,9 +1094,9 @@
+ 
+     invoke-direct {p0, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+ 
+-    const-string v0, "com.miui.gallery"
++    const-string v0, "android.intent.category.APP_GALLERY"
+ 
+-    invoke-virtual {p0, v0}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
++    invoke-virtual {p0, v0}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
+ 
+     invoke-virtual {p1, p0}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
+ 
+@@ -1203,9 +1203,6 @@
+     invoke-direct {p0, v0, p2}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
+ 
+     :goto_0
+-    const-string p1, "com.miui.gallery"
+-
+-    invoke-virtual {p0, p1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
+ 
+     const-string p1, "from_MiuiCamera"
+ 
+diff --git a/smali_classes4/com/xiaomi/camera/parallelservice/provider/ParallelProcessProvider.smali b/smali_classes4/com/xiaomi/camera/parallelservice/provider/ParallelProcessProvider.smali
+index 4ba79c7c4..16ef2f91b 100644
+--- a/smali_classes4/com/xiaomi/camera/parallelservice/provider/ParallelProcessProvider.smali
++++ b/smali_classes4/com/xiaomi/camera/parallelservice/provider/ParallelProcessProvider.smali
+@@ -414,28 +414,6 @@
+ 
+     invoke-static {v0, v3, v2}, Lcom/android/camera/log/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
+ 
+-    invoke-static {}, Lbb/c;->u2()Lbb/c;
+-
+-    move-result-object v0
+-
+-    invoke-virtual {v0}, Lbb/c;->E2()Z
+-
+-    move-result v0
+-
+-    if-nez v0, :cond_0
+-
+-    invoke-static {}, Lbb/c;->u2()Lbb/c;
+-
+-    move-result-object v0
+-
+-    invoke-virtual {v0}, Lbb/c;->F2()Z
+-
+-    move-result v0
+-
+-    if-nez v0, :cond_0
+-
+-    const/4 v1, 0x4
+-
+     :cond_0
+     :goto_0
+     return v1
