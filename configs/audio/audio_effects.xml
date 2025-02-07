@@ -27,6 +27,7 @@
         <library name="spatializer" path="libswspatializer.so"/>
         <library name="gamedap" path="libswgamedap.so"/>
         <library name="vqe" path="libswvqe.so"/>
+        <library name="v4a_re" path="libv4a_re.so"/>
     </libraries>
     <!-- list of effects to load.
          Each "effect" element must contain a "name", "library" and a "uuid" attribute.
@@ -73,6 +74,7 @@
         <effect name="spatializer" library="spatializer" uuid="ccd4cf09-a79d-46c2-9aae-06a1698d6c8f"/>
         <effect name="gamedap" library="gamedap" uuid="3783c334-d3a0-4d13-874f-0032e5fb80e2"/>
         <effect name="vqe" library="vqe" uuid="64a0f614-7fa4-48b8-b081-d59dc954616f"/>
+        <effect name="v4a_standard_re" library="v4a_re" uuid="90380da3-8536-4744-a6a3-5731970e640f"/>
     </effects>
     <postprocess>
         <stream type="music">
