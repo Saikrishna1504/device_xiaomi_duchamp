@@ -1,19 +1,19 @@
-From 02eca938b38320f88c8b8edbe95484f45d66249f Mon Sep 17 00:00:00 2001
+From 2c83a533b252165c1fd66b9df0d3bb0e695031c6 Mon Sep 17 00:00:00 2001
 From: Arian <arian.kulmer@web.de>
-Date: Thu, 30 Jan 2025 03:27:27 +0000
+Date: Thu, 27 Mar 2025 05:20:20 +0000
 Subject: [PATCH] Change com.android.camera.action.REVIEW to
  android.provider.action.REVIEW This is the standard intent for review actions
 
 Signed-off-by: Saikrishna1504 <saikrishna26918@gmail.com>
 ---
- smali/com/android/camera/t3.smali | 4 ++--
+ smali/com/android/camera/w3.smali | 4 ++--
  1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/smali/com/android/camera/t3.smali b/smali/com/android/camera/t3.smali
-index c551c1d3..218d1249 100644
---- a/smali/com/android/camera/t3.smali
-+++ b/smali/com/android/camera/t3.smali
-@@ -1138,7 +1138,7 @@
+diff --git a/smali/com/android/camera/w3.smali b/smali/com/android/camera/w3.smali
+index 1cfa2eb69..c3dcd8016 100644
+--- a/smali/com/android/camera/w3.smali
++++ b/smali/com/android/camera/w3.smali
+@@ -1136,7 +1136,7 @@
  
      move-result p0
  
@@ -22,7 +22,7 @@ index c551c1d3..218d1249 100644
  
      if-eqz p0, :cond_0
  
-@@ -1199,7 +1199,7 @@
+@@ -1197,7 +1197,7 @@
  
      const-string p1, "GalleryHelper"
  
