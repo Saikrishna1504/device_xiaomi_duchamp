@@ -1,4 +1,4 @@
-From 89c1a16e22429d5d5aecad0cf4e1b789403a81ee Mon Sep 17 00:00:00 2001
+From 771e7010f9434c053d9a1099f88f9b0977112dd2 Mon Sep 17 00:00:00 2001
 From: Arian <arian.kulmer@web.de>
 Date: Mon, 13 Mar 2023 15:46:13 +0100
 Subject: [PATCH] ICustomCaptureResult: Add readout timestamp
