@@ -114,6 +114,10 @@ blob_fixups: blob_fixups_user_type = {
     'vendor/lib64/mt6897/libmtkcam_hwnode.jpegnode.so': blob_fixup()
         .add_needed('libultrahdr_shim.so'),
 
+
+    'system_ext/lib64/vendor.mediatek.hardware.camera.isphal-V1-ndk.so': blob_fixup()
+        .replace_needed('android.hardware.graphics.common-V5-ndk.so', 'android.hardware.graphics.common-V6-ndk.so'),
+
     ('system_ext/lib64/libcamera_algoup_jni.xiaomi.so',
      'system_ext/lib64/libcamera_mianode_jni.xiaomi.so',
      'system_ext/lib64/libcamera_ispinterface_jni.xiaomi.so'): blob_fixup()
