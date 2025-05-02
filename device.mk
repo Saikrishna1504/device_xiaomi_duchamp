@@ -349,6 +349,10 @@ $(call soong_config_set, XIAOMI_TOUCH, HIGH_TOUCH_POLLING_PATH, /sys/devices/vir
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml
 
+# Thermal files
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*,$(DEVICE_PATH)/configs/thermals/,$(TARGET_COPY_OUT_ODM)/etc)
+
 # Thermal
 PRODUCT_PACKAGES += \
     android.hardware.thermal-service.mediatek
