@@ -53,7 +53,9 @@ blob_fixups: blob_fixups_user_type = {
 
     'vendor/lib64/hw/audio.primary.mediatek.so': blob_fixup()
         .replace_needed('android.hardware.audio.common-V1-ndk.so', 'android.hardware.audio.common-V2-ndk.so')
-        .replace_needed('libalsautils.so', 'libalsautils-v34.so'),
+        .replace_needed('libalsautils.so', 'libalsautils-v34.so')
+        .binary_regex_replace(b'A2dpsuspendonly', b'A2dpSuspended\x00\x00')
+        .binary_regex_replace(b'BTAudiosuspend', b'A2dpSuspended\x00'),
 
     ('vendor/lib64/mt6897/lib3a.ae.stat.so',
      'vendor/lib64/libarmnn_ndk.mtk.vndk.so'): blob_fixup()
