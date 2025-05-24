@@ -203,8 +203,21 @@ class XiaomiMt6897UdfpsHander : public UdfpsHandler {
 
     void onAcquired(int32_t result, int32_t vendorCode) {
         LOG(DEBUG) << __func__ << " result: " << result << " vendorCode: " << vendorCode;
-        if (static_cast<AcquiredInfo>(result) == AcquiredInfo::GOOD) {
-            setFingerDown(false);
+        switch (static_cast<AcquiredInfo>(result)) {
+            case AcquiredInfo::GOOD:
+            case AcquiredInfo::PARTIAL:
+            case AcquiredInfo::INSUFFICIENT:
+            case AcquiredInfo::SENSOR_DIRTY:
+            case AcquiredInfo::TOO_SLOW:
+            case AcquiredInfo::TOO_FAST:
+            case AcquiredInfo::TOO_DARK:
+            case AcquiredInfo::TOO_BRIGHT:
+            case AcquiredInfo::IMMOBILE:
+            case AcquiredInfo::LIFT_TOO_SOON:
+                onFingerUp();
+                break;
+            default:
+                break;
         }
     }
 
