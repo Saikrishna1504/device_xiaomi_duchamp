@@ -9,6 +9,7 @@ allow hal_fingerprint_default input_device:chr_file rw_file_perms;
 allow hal_fingerprint_default mnt_vendor_file:dir r_dir_perms;
 allow hal_fingerprint_default persist_data_file:dir create_dir_perms;
 allow hal_fingerprint_default persist_data_file:file rw_file_perms;
+allow hal_fingerprint_default self:capability { sys_nice };
 allow hal_fingerprint_default vendor_displayfeature_device:chr_file rw_file_perms;
 allow hal_fingerprint_default vendor_touchfeature_device:chr_file rw_file_perms;
 
