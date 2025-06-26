@@ -24,6 +24,7 @@ TARGET_INCLUDE_VIPERFX := true
 TARGET_ENABLE_BLUR := true
 TARGET_TOUCH_BOOST_SUPPORTED := true
 TORCH_STR_SUPPORTED := true
+BYPASS_CHARGE_SUPPORTED := true
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_NAME := lineage_duchamp
