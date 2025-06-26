@@ -22,6 +22,7 @@ TARGET_INCLUDES_LOS_PREBUILTS := true
 TARGET_INCLUDE_AXFX := true
 TARGET_ENABLE_BLUR := true
 TORCH_STR_SUPPORTED := true
+BYPASS_CHARGE_SUPPORTED := true
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_NAME := lineage_duchamp

@@ -1,0 +1,3 @@
+# Charge Bypass
+allow init sysfs_battery_supply:file rw_file_perms;
+
