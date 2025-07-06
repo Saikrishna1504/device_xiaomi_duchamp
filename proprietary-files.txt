@@ -198,7 +198,6 @@ vendor/bin/batterysecret
 # Bluetooth
 vendor/etc/init/init.bt_drv.rc
 vendor/firmware/BT_FW.cfg
-vendor/firmware/soc7_0_ram_bt_1_1_hdr.bin
 vendor/lib64/libbluetooth_mtk.so
 vendor/lib64/libbluetooth_mtk_pure.so
 vendor/lib64/libbt-vendor.so
@@ -1085,7 +1084,6 @@ vendor/etc/camera/mimotion_f5w.bin
 vendor/bin/conninfra_loader
 vendor/firmware/connfem.cfg
 vendor/firmware/conninfra.cfg
-vendor/firmware/soc7_0_ram_mcu_1_1_hdr.bin
 vendor/firmware/txpowerctrl.cfg
 
 # ConsumerIr
