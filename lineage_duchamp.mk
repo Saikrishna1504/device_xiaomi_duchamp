@@ -13,6 +13,17 @@ $(call inherit-product, device/xiaomi/duchamp/device.mk)
 # Inherit some common LineageOS stuff.
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
+# Axion Stuff
+AXION_CAMERA_REAR_INFO := 64,8,2
+AXION_CAMERA_FRONT_INFO := 16
+AXION_PROCESSOR := MTK_Dimensity_8300U
+AXION_MAINTAINER := Sai_Krishna
+TARGET_INCLUDES_LOS_PREBUILTS := true
+TARGET_INCLUDE_AXFX := true
+TARGET_ENABLE_BLUR := true
+TORCH_STR_SUPPORTED := true
+
+## Device identifier. This must come after all inclusions
 PRODUCT_BRAND := POCO
 PRODUCT_DEVICE := duchamp
 PRODUCT_MANUFACTURER := Xiaomi
