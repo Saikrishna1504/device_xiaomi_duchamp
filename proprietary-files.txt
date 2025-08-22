@@ -1,4 +1,4 @@
-# Unpinned blobs from duchamp_global-user 15 AP3A.240905.015.A2 OS2.0.1.0.VNLMIXM release-keys
+# Unpinned blobs from duchamp_global-user 15 AP3A.240905.015.A2 OS2.0.200.0.VNLMIXM release-keys
 
 # AEE
 vendor/lib64/libaedv.so
