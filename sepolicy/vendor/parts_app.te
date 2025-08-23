@@ -1,0 +1,65 @@
+type parts_app, coredomain, domain;
+typeattribute parts_app mlstrustedsubject;
+
+app_domain(parts_app)
+binder_use(parts_app)
+
+# DisplayFeature HAL permissions
+hal_client_domain(parts_app, vendor_hal_displayfeature)
+binder_call(parts_app, vendor_hal_displayfeature)
+
+# Allow parts_app to find various services
+allow parts_app {
+    activity_service
+    activity_task_service
+    app_api_service
+    audioserver_service
+    audio_service
+    autofill_service
+    cameraserver_service
+    content_capture_service
+    device_state_service
+    drmserver_service
+    game_service
+    gpu_service
+    hint_service
+    media_session_service
+    mediaextractor_service
+    mediametrics_service
+    mediaserver_service
+    netstats_service
+    permission_checker_service
+    sensorservice_service
+    statusbar_service
+    surfaceflinger_service
+    thermal_service
+    trust_service
+    voiceinteraction_service
+}:service_manager find;
+
+# Allow parts_app read and write /data/data subdirectory
+allow parts_app system_app_data_file:dir create_dir_perms;
+allow parts_app system_app_data_file:{
+    file
+    lnk_file
+} create_file_perms;
+
+# Allow XiaomiParts to read/write to sysfs_htsr (touch sampling)
+allow parts_app sysfs_htsr:file rw_file_perms;
+
+# Allow binder communication with gpuservice
+binder_call(parts_app, gpuservice)
+
+# Allow parts_app to read and write to cgroup/sysfs_leds/sysfs_thermal
+allow parts_app sysfs_leds:dir search;
+allow parts_app {
+    cgroup
+    sysfs_leds
+    sysfs_thermal
+}:{ file lnk_file } rw_file_perms;
+
+# Allow XiaomiParts to get settingsdebug.instant.packages prop
+get_prop(parts_app, settingslib_prop)
+
+# DisplayFeature service permissions
+allow parts_app vendor_hal_displayfeature_service:service_manager find;

@@ -1,1 +1,2 @@
 user=_app isPrivApp=true name=com.android.camera domain=miuicamera_app type=privapp_data_file levelFrom=all
+user=system seinfo=platform isPrivApp=true name=org.lineageos.settings domain=parts_app type=system_app_data_file levelFrom=all

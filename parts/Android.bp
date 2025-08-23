@@ -17,6 +17,7 @@ android_app {
     static_libs: [
         "androidx.core_core",
         "org.lineageos.settings.resources",
+        "vendor.xiaomi.hardware.displayfeature_aidl-V2-java",
     ],
     required: [
         "privapp_whitelist_org.lineageos.settings.xml",
