@@ -652,9 +652,6 @@ on post-fs-data
     chmod 0660 /dev/drm_wv
     chown media system /dev/drm_wv
 
-    # Create dir for dolby
-    mkdir /data/vendor/dolby 0770 media media
-
     #blocktag driver node
     chown system system /proc/blocktag/eara_io_boost
 

@@ -53,14 +53,6 @@
 /data/vendor/display(/.*)?                                                                             u:object_r:vendor_display_data_file:s0
 /mnt/vendor/persist/display(/.*)?                                                                      u:object_r:vendor_persist_display_file:s0
 
-# Dolby Atmos
-/data/vendor/dolby(/.*)?                                                                               u:object_r:vendor_dolby_file:s0
-/(vendor|system/vendor)/bin/hw/vendor\.dolby\.hardware\.dms@2\.0-service                               u:object_r:hal_dms_default_exec:s0
-
-# Dolby Vision
-/(vendor|system/vendor)/bin/hw/dolbycodec2                                                             u:object_r:mediacodec_exec:s0
-/(vendor|system/vendor)/bin/hw/vendor\.dolby\.media\.c2@1\.0-service                                   u:object_r:mediacodec_exec:s0
-
 # Fido
 /(odm|vendor/odm|system/vendor)/bin/fidoca_mitee                                                       u:object_r:hal_mfidoca_default_exec:s0
 

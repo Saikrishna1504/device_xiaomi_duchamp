@@ -51,9 +51,6 @@ blob_fixups: blob_fixups_user_type = {
     'odm/bin/hw/vendor.xiaomi.sensor.citsensorservice.aidl': blob_fixup()
         .add_needed('libui_shim.so'),
 
-    'vendor/lib64/c2.dolby.client.so': blob_fixup()
-        .add_needed('libshim_codec2_hidl.so'),
-
     'vendor/lib64/hw/audio.primary.mediatek.so': blob_fixup()
         .replace_needed('android.hardware.audio.common-V1-ndk.so', 'android.hardware.audio.common-V2-ndk.so')
         .replace_needed('libalsautils.so', 'libalsautils-v34.so'),
@@ -114,7 +111,6 @@ blob_fixups: blob_fixups_user_type = {
     'vendor/lib64/mt6897/libmtkcam_hwnode.jpegnode.so': blob_fixup()
         .add_needed('libultrahdr_shim.so'),
 
-
     'system_ext/lib64/vendor.mediatek.hardware.camera.isphal-V1-ndk.so': blob_fixup()
         .replace_needed('android.hardware.graphics.common-V5-ndk.so', 'android.hardware.graphics.common-V6-ndk.so'),
 
@@ -125,6 +121,10 @@ blob_fixups: blob_fixups_user_type = {
 
      'system_ext/priv-app/MiuiCamera/MiuiCamera.apk': blob_fixup()
         .apktool_patch('blob-patches/MIUICamera/'),
+
+    'vendor/etc/vintf/manifest/manifest_media_c2_V1_2_default.xml': blob_fixup()
+        .regex_replace('.+dolby.+\n', '')
+
 }  # fmt: skip
 
 module = ExtractUtilsModule(
