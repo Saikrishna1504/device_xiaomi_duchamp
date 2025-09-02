@@ -327,7 +327,6 @@ PRODUCT_PACKAGES += \
     init.mt6897.usb.rc \
     init.project.rc \
     init.sensor_2_0.rc \
-    init.target.rc \
     ueventd.mtk.rc
 
 PRODUCT_COPY_FILES += \
