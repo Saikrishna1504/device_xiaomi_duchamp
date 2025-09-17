@@ -23,10 +23,6 @@ TARGET_INCLUDES_LOS_PREBUILTS := true
 TARGET_INCLUDE_VIPERFX := true
 TARGET_ENABLE_BLUR := true
 
-# Axion CPU Flags
-AXION_CPU_SMALL_CORES := 0,1,2,3
-AXION_CPU_BIG_CORES := 4,5,6,7
-
 ## Device identifier. This must come after all inclusions
 PRODUCT_NAME := lineage_duchamp
 PRODUCT_DEVICE := duchamp
