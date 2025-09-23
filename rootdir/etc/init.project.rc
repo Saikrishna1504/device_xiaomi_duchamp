@@ -2,10 +2,6 @@ import /vendor/etc/init/hw/init.mtkgki.rc
 import /vendor/etc/init/hw/init.batterysecret.rc
 import /vendor/etc/init/hw/init.mi_thermald.rc
 
-on init
-    mkdir /mnt/media_rw/usbotg 0700 media_rw media_rw
-    mkdir /storage/usbotg 0700 root root
-
 on post-fs-data
 
     # Camera
@@ -76,10 +72,6 @@ on post-fs-data
 
     # Wifi
     mkdir /data/vendor/wlan_logs 0777 root shell
-
-service fuse_usbotg /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw/usbotg /storage/usbotg
-    class late_start
-    disabled
 
 # smart pa start
 on property:vendor.audio.cit.spkcal.copy=true
