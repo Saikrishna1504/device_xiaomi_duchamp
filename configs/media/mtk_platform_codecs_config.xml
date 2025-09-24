@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+-->
+<MediaCodecs>
+    <Decoders>
+        <!-- Performance management -->
+        <Video name="cpu.boost.multiple.instances"
+               cluster="0,1"
+               minFrequency="1200000,1000000" />
+        <Video name="cpu.boost.720p180"
+               cluster="0,1"
+               minFrequency="2000000,2000000" />
+        <Video name="cpu.boost.mode"
+               cluster="0"
+               minFrequency="700000" />
+        <!-- If width*height > minFrameArea && MemAvailable < minMemAvailableKb, then returns NO_MEMORY -->
+        <Video name="color.converter"
+               alwaysColorConvertChecker="true" />
+        <Video name="c2.mtk.avc.decoder"
+               type="video/avc"
+               driverIntf="v4l2"
+               maxConcurrentInstances="15"
+               metaBufferSize="4096" />
+        <Video name="c2.mtk.avc.decoder.secure"
+               type="video/avc"
+               driverIntf="v4l2"
+               maxConcurrentInstances="15" />
+        <Video name="c2.mtk.avc.decoder.lowlatency"
+               type="video/avc"
+               driverIntf="v4l2"
+               maxConcurrentInstances="15" />
+        <Video name="c2.mtk.hevc.decoder"
+               type="video/hevc"
+               driverIntf="v4l2"
+               maxConcurrentInstances="15"
+               metaBufferSize="4096" />
+        <Video name="c2.mtk.hevc.decoder.secure"
+               type="video/hevc"
+               driverIntf="v4l2"
+               maxConcurrentInstances="15"
+               metaBufferSize="4096" />
+        <Video name="c2.mtk.hevc.decoder.lowlatency"
+               type="video/hevc"
+               driverIntf="v4l2"
+               maxConcurrentInstances="15"
+               metaBufferSize="4096" />
+        <Video name="c2.mtk.heif.decoder"
+               type="image/vnd.android.heic"
+               driverIntf="v4l2"
+               maxConcurrentInstances="15" />
+        <Video name="c2.mtk.vp9.decoder"
+               type="video/x-vnd.on2.vp9"
+               driverIntf="v4l2"
+               maxConcurrentInstances="15" />
+        <Video name="c2.mtk.vp9.decoder.secure"
+               type="video/x-vnd.on2.vp9"
+               driverIntf="v4l2"
+               maxConcurrentInstances="15" />
+        <Video name="c2.mtk.vp9.decoder.lowlatency"
+               type="video/x-vnd.on2.vp9"
+               driverIntf="v4l2"
+               maxConcurrentInstances="15" />
+        <Video name="c2.mtk.av1.decoder"
+               type="video/av01"
+               driverIntf="v4l2"
+               maxConcurrentInstances="15"
+               maxInputBufferSize="10481664"
+               metaBufferSize="4096" />
+        <Video name="c2.mtk.av1.decoder.secure"
+               type="video/av01"
+               driverIntf="v4l2"
+               maxConcurrentInstances="15"
+               metaBufferSize="4096" />
+        <Video name="c2.mtk.av1.decoder.lowlatency"
+               type="video/av01"
+               driverIntf="v4l2"
+               maxConcurrentInstances="15"
+               metaBufferSize="4096" />
+    </Decoders>
+    <Encoders>
+        <!-- Performance management -->
+        <Video name="cpu.boost.multiple.instances"
+               cluster="0,1"
+               minFrequency="1200000,1000000" />
+        <Video name="cpu.boost.transcode"
+               cluster="0,1,2"
+               minFrequency="1800000,2850000,2000000"
+               operatingRate="960"/>
+        <Video name="c2.mtk.avc.encoder"
+               type="video/avc"
+               driverIntf="v4l2"
+               canSwapWidthHeight="true"
+               maxConcurrentInstances="10"
+               metaBufferSize="4096" />
+        <Video name="c2.mtk.avc.encoder.secure"
+               type="video/avc"
+               driverIntf="v4l2"
+               maxConcurrentInstances="10"
+               canSwapWidthHeight="true" />
+        <Video name="c2.mtk.hevc.encoder"
+               type="video/hevc"
+               driverIntf="v4l2"
+               canSwapWidthHeight="true"
+               maxConcurrentInstances="10"
+               metaBufferSize="4096" />
+        <Video name="c2.mtk.hevc.encoder.secure"
+               type="video/hevc"
+               driverIntf="v4l2"
+               canSwapWidthHeight="true"
+               maxConcurrentInstances="10" />
+        <Video name="c2.mtk.heif.encoder"
+               type="image/vnd.android.heic"
+               driverIntf="v4l2"
+               maxConcurrentInstances="2" />
+    </Encoders>
+</MediaCodecs>
