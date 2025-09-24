@@ -1,9 +1,12 @@
+import /vendor/etc/init/hw/init.batterysecret.rc
 import /vendor/etc/init/hw/init.connectivity.rc
+import /vendor/etc/init/hw/init.fingerprint.rc
+import /vendor/etc/init/hw/init.mi_thermald.rc
 import /vendor/etc/init/hw/init.mt6897.power.rc
 import /vendor/etc/init/hw/init.mt6897.usb.rc
+import /vendor/etc/init/hw/init.mtkgki.rc
 import /vendor/etc/init/hw/init.project.rc
 import /vendor/etc/init/hw/init.sensor_2_0.rc
-import /vendor/etc/init/hw/init.fingerprint.rc
 
 on early-init
     write /sys/module/drm/parameters/vblankoffdelay -1

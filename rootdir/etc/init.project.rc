@@ -1,7 +1,3 @@
-import /vendor/etc/init/hw/init.mtkgki.rc
-import /vendor/etc/init/hw/init.batterysecret.rc
-import /vendor/etc/init/hw/init.mi_thermald.rc
-
 on post-fs-data
 
     # Camera
