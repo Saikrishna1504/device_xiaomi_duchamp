@@ -322,7 +322,6 @@ PRODUCT_PACKAGES += \
     init.connectivity.rc \
     init.fingerprint.rc \
     init.mi_thermald.rc \
-    init.modem.rc \
     init.mt6897.rc \
     init.mt6897.power.rc \
     init.mt6897.usb.rc \

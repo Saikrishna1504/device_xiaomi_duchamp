@@ -40,13 +40,6 @@ prebuilt_etc {
 }
 
 prebuilt_etc {
-    name: "init.modem.rc",
-    src: "etc/init.modem.rc",
-    sub_dir: "init/hw",
-    vendor: true,
-}
-
-prebuilt_etc {
     name: "init.mt6897.rc",
     src: "etc/init.mt6897.rc",
     sub_dir: "init/hw",
