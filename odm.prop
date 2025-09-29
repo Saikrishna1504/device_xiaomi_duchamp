@@ -16,3 +16,8 @@ vendor.displayfeature.entry.enable=true
 # SKU
 ro.product.property_source_order=odm,vendor,product,system_ext,system
 import /odm/etc/${ro.boot.hwc}.prop
+
+# Vibrator
+ro.odm.mm.vibrator.diff_f0=1
+ro.odm.mm.vibrator.si_sys_path=/sys/bus/i2c/drivers/sih_haptic_688X/0-006b
+ro.odm.mm.vibrator.sys_path=/sys/bus/i2c/drivers/awinic_haptic/0-005a
