@@ -24,3 +24,6 @@ type vendor_touchfeature_device, dev_type;
 # Trusted Execution Environment (TEE)
 type mitee_data_file, data_file_type, file_type;
 type proc_mitee_log, fs_type, proc_type;
+
+# Vibrator
+type haptics_data_file, file_type, data_file_type;
