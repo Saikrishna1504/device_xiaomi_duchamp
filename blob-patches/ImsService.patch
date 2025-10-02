@@ -1,8 +1,8 @@
 diff --git a/AndroidManifest.xml b/AndroidManifest.xml
-index d81ae85..4bd0c3e 100644
+index 1c82b5d..5a90ab2 100644
 --- a/AndroidManifest.xml
 +++ b/AndroidManifest.xml
-@@ -51,6 +51,13 @@
+@@ -52,6 +52,13 @@
      <application android:allowBackup="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:directBootAware="true" android:extractNativeLibs="false" android:label="ImsApp" android:name="com.mediatek.ims.ImsApp" android:persistent="true" android:usesNonSdkApi="true">
          <uses-library android:name="com.mediatek.ims.oemplugin" android:required="false"/>
          <uses-library android:name="com.mediatek.ims.plugin" android:required="false"/>
@@ -16,13 +16,6 @@ index d81ae85..4bd0c3e 100644
          <service android:exported="true" android:name="com.mediatek.ims.MtkDynamicImsService" android:permission="android.permission.BIND_IMS_SERVICE">
              <meta-data android:name="android.telephony.ims.RCS_FEATURE" android:value="true"/>
              <meta-data android:name="android.telephony.ims.MMTEL_FEATURE" android:value="true"/>
-@@ -82,4 +89,4 @@
-             </intent-filter>
-         </receiver>
-     </application>
--</manifest>
-\ No newline at end of file
-+</manifest>
 diff --git a/smali/com/mediatek/ims/ImsConfigManager.smali b/smali/com/mediatek/ims/ImsConfigManager.smali
 index d287579..99367fe 100644
 --- a/smali/com/mediatek/ims/ImsConfigManager.smali
