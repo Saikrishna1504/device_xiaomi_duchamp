@@ -16,6 +16,10 @@ genfscon sysfs /devices/platform/soc/11e10000.dp-tx/extcon/dp_audio/cable.0/name
 # Fingerprint
 genfscon sysfs /devices/virtual/touch/touch_dev/fod_press_status u:object_r:vendor_fingerprint_sysfs:s0
 
+# Gpu Boost
+genfscon sysfs /sys/class/devfreq/13000000.mali/available_frequencies                   u:object_r:sysfs_gpu:s0
+genfscon sysfs /sys/class/devfreq/13000000.mali/min_freq                   u:object_r:sysfs_gpu:s0
+
 # Power
 genfscon sysfs /devices/platform/11b72000.i2c/i2c-10/10-0055/power_supply/bms                             u:object_r:sysfs_power_supply:s0
 genfscon sysfs /devices/platform/11b72000.i2c/i2c-10/10-0055/verify_digest                                u:object_r:sysfs_power_supply:s0
