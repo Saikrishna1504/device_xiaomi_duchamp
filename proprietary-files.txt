@@ -1290,7 +1290,6 @@ odm/etc/disp0/dsi_n11a_42_02_0a_dsc_vdo/miLut_9.txt
 # Display Firmware
 vendor/firmware/focaltech_ts_fw.bin
 vendor/firmware/goodix_cfg_group_duchamp.bin
-vendor/firmware/goodix_cfg_group_duchamp_nowater.bin
 vendor/firmware/goodix_firmware_duchamp.bin
 
 # DRM
