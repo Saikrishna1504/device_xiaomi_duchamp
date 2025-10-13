@@ -380,9 +380,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     vibratorfeature-wrapper
 
-# Virtualization service
-$(call inherit-product, packages/modules/Virtualization/apex/product_packages.mk)
-
 # Miui Camera Permissions
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/permissions/privapp-permissions-miuicamera.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-permissions-miuicamera.xml
