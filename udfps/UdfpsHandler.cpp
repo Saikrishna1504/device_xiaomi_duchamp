@@ -28,8 +28,6 @@
 #define LOW_BRIGHTNESS_THRESHHOLD 100
 
 #define COMMAND_FOD_PRESS_STATUS 1
-#define COMMAND_FOD_PRESS_X 2
-#define COMMAND_FOD_PRESS_Y 3
 #define PARAM_FOD_PRESSED 1
 #define PARAM_FOD_RELEASED 0
 
@@ -130,8 +128,6 @@ class XiaomiMt6897UdfpsHander : public UdfpsHandler {
                 }
 
                 bool pressed = readBool(fd);
-                mDevice->extCmd(mDevice, COMMAND_FOD_PRESS_X, pressed ? lastPressX : 0);
-                mDevice->extCmd(mDevice, COMMAND_FOD_PRESS_Y, pressed ? lastPressY : 0);
                 mDevice->extCmd(mDevice, COMMAND_FOD_PRESS_STATUS,
                                 pressed ? PARAM_FOD_PRESSED : PARAM_FOD_RELEASED);
 
@@ -200,9 +196,6 @@ class XiaomiMt6897UdfpsHander : public UdfpsHandler {
 
     void onFingerDown(uint32_t x, uint32_t y, float /*minor*/, float /*major*/) {
         LOG(DEBUG) << __func__ << "x: " << x << ", y: " << y;
-        // Track x and y coordinates
-        lastPressX = x;
-        lastPressY = y;
 
         /*
          * On fpc_fod devices, the waiting for finger message is not reliably sent...
@@ -257,7 +250,6 @@ class XiaomiMt6897UdfpsHander : public UdfpsHandler {
     fingerprint_device_t* mDevice;
     android::base::unique_fd touch_fd_;
     android::base::unique_fd disp_fd_;
-    uint32_t lastPressX, lastPressY;
     bool isFpcFod;
 
     void setFodStatus(int value) {
