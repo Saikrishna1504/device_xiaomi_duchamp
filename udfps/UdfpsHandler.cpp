@@ -23,9 +23,6 @@
 #define COMMAND_NIT 10
 #define TARGET_BRIGHTNESS_OFF 0
 #define TARGET_BRIGHTNESS_1000NIT 1
-#define TARGET_BRIGHTNESS_110NIT 6
-
-#define LOW_BRIGHTNESS_THRESHHOLD 100
 
 #define COMMAND_FOD_PRESS_STATUS 1
 #define PARAM_FOD_PRESSED 1
@@ -176,13 +173,10 @@ class XiaomiMt6897UdfpsHander : public UdfpsHandler {
                 LOG(DEBUG) << "received data: " << std::bitset<8>(value);
 
                 bool localHbmUiReady = value & LOCAL_HBM_UI_READY;
-                bool requestLowBrightnessCapture = value & FOD_LOW_BRIGHTNESS_CAPTURE;
 
-                mDevice->extCmd(mDevice, COMMAND_NIT,
-                                localHbmUiReady
-                                        ? (requestLowBrightnessCapture ? TARGET_BRIGHTNESS_110NIT
-                                                                       : TARGET_BRIGHTNESS_1000NIT)
-                                        : TARGET_BRIGHTNESS_OFF);
+                mDevice->extCmd(
+                        mDevice, COMMAND_NIT,
+                        localHbmUiReady ? TARGET_BRIGHTNESS_1000NIT : TARGET_BRIGHTNESS_OFF);
             }
         }).detach();
     }
