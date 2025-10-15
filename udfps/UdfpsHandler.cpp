@@ -120,14 +120,6 @@ class XiaomiMt6897UdfpsHander : public UdfpsHandler {
                 bool pressed = readBool(fd);
                 mDevice->extCmd(mDevice, COMMAND_FOD_PRESS_STATUS,
                                 pressed ? PARAM_FOD_PRESSED : PARAM_FOD_RELEASED);
-
-                // Request HBM
-                disp_local_hbm_req req;
-                req.base.flag = 0;
-                req.base.disp_id = MI_DISP_PRIMARY;
-                req.local_hbm_value = pressed ? LHBM_TARGET_BRIGHTNESS_WHITE_1000NIT
-                                              : LHBM_TARGET_BRIGHTNESS_OFF_FINGER_UP;
-                ioctl(disp_fd_.get(), MI_DISP_IOCTL_SET_LOCAL_HBM, &req);
             }
         }).detach();
 
@@ -183,12 +175,28 @@ class XiaomiMt6897UdfpsHander : public UdfpsHandler {
 
     void onFingerDown(uint32_t x, uint32_t y, float /*minor*/, float /*major*/) {
         LOG(DEBUG) << __func__ << "x: " << x << ", y: " << y;
+
+        // Request HBM
+        disp_local_hbm_req req;
+        req.base.flag = 0;
+        req.base.disp_id = MI_DISP_PRIMARY;
+        req.local_hbm_value = LHBM_TARGET_BRIGHTNESS_WHITE_1000NIT;
+        ioctl(disp_fd_.get(), MI_DISP_IOCTL_SET_LOCAL_HBM, &req);
+
         // Notify touchscreen about press status
         setFingerDown(true);
     }
 
     void onFingerUp() {
         LOG(DEBUG) << __func__;
+
+        // Disable HBM
+        disp_local_hbm_req req;
+        req.base.flag = 0;
+        req.base.disp_id = MI_DISP_PRIMARY;
+        req.local_hbm_value = LHBM_TARGET_BRIGHTNESS_OFF_FINGER_UP;
+        ioctl(disp_fd_.get(), MI_DISP_IOCTL_SET_LOCAL_HBM, &req);
+
         // Notify touchscreen about press status
         setFingerDown(false);
     }
