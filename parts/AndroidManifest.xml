@@ -6,8 +6,6 @@
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.xiaomi.settings"
-    android:versionCode="1"
-    android:versionName="1.0"
     android:sharedUserId="android.uid.system">
 
     <uses-permission android:name="android.permission.ACCESS_SURFACE_FLINGER" />
@@ -20,20 +18,16 @@
     <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS" />
 
     <application
-        android:icon="@mipmap/ic_launcher"
-        android:theme="@style/Theme.SubSettingsBase"
-        android:label="@string/device_settings_app_name"
+        android:label="@string/app_name"
         android:persistent="true"
         android:defaultToDeviceProtectedStorage="true"
         android:directBootAware="true">
 
         <receiver
             android:name=".BootCompletedReceiver"
-            android:exported="true"
-            android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-                <category android:name="android.intent.category.DEFAULT" />
+            android:exported="true">
+            <intent-filter android:priority="1000">
+                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
 
@@ -44,14 +38,14 @@
 
 	<service
             android:name=".thermal.ThermalService"
-            android:exported="true"
             android:permission="ThermalService">
 	</service>
 
         <activity
-            android:name=".thermal.ThermalActivity"
-            android:exported="false"
-            android:label="@string/thermal_title">
+            android:name=".thermal.ThermalSettingsActivity"
+            android:label="@string/thermal_title"
+            android:theme="@style/Theme.SubSettingsBase.Thermal"
+            android:exported="true">
             <intent-filter>
                 <action android:name="com.android.settings.action.IA_SETTINGS" />
             </intent-filter>
