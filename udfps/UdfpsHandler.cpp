@@ -189,7 +189,10 @@ class XiaomiMt6897UdfpsHandler : public UdfpsHandler {
         }
     }
 
-    void cancel() { LOG(DEBUG) << __func__; }
+    void cancel() {
+        LOG(DEBUG) << __func__;
+        onFingerUp();
+    }
 
   private:
     fingerprint_device_t* mDevice;
