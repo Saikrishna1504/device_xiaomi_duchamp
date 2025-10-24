@@ -392,48 +392,6 @@
       "ResetOnInit": true
     },
     {
-      "Name": "ThermalMessage",
-      "Path": "/sys/devices/virtual/thermal/thermal_message/sconfig",
-      "Values": [
-        "0",
-        "1",
-        "5",
-        "6",
-        "7",
-        "9",
-        "10",
-        "11",
-        "14",
-        "15",
-        "16",
-        "18",
-        "19",
-        "20",
-        "26",
-        "57"
-      ],
-      "ResetOnInit": true,
-      "DefaultIndex": 0,
-      "Comments": [
-        "thermal-normal",
-        "thermal-huanji",
-        "thermal-phone",
-        "thermal-nolimits",
-        "thermal-class0",
-        "thermal-arvr",
-        "thermal-navigation",
-        "thermal-video",
-        "thermal-videochat",
-        "thermal-camera",
-        "thermal-4k",
-        "thermal-tgame",
-        "thermal-mgame",
-        "thermal-yuanshen",
-        "thermal-highfps",
-        "thermal-per-class0"
-      ]
-    },
-    {
       "Name": "PowerHALRenderingState",
       "Path": "vendor.powerhal.rendering",
       "Values": [
@@ -541,12 +499,6 @@
       "Value": "9999999999"
     },
     {
-      "PowerHint": "FIXED_PERFORMANCE",
-      "Node": "ThermalMessage",
-      "Duration": 0,
-      "Value": "6"
-    },
-    {
       "PowerHint": "EXPENSIVE_RENDERING",
       "Node": "PowerHALRenderingState",
       "Duration": 0,
@@ -563,12 +515,6 @@
       "Node": "PMQoSCpuDmaLatency",
       "Duration": 2000,
       "Value": "51"
-    },
-    {
-      "PowerHint": "GAME",
-      "Node": "ThermalMessage",
-      "Duration": 0,
-      "Value": "19"
     }
   ]
 }

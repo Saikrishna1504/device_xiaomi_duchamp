@@ -145,49 +145,49 @@ private constructor(
     ) {
         BENCHMARK(
             0,
-            "10", // thermal-nolimits.conf
+            "6", // thermal-nolimits.conf
             "thermal.benchmark=",
             R.string.thermal_benchmark,
         ),
         BROWSER(
             1,
-            "11", // thermal-class0.conf
+            "7", // thermal-class0.conf
             "thermal.browser=",
             R.string.thermal_browser,
         ),
         CAMERA(
             2,
-            "12", // thermal-camera.conf
+            "15", // thermal-camera.conf
             "thermal.camera=",
             R.string.thermal_camera,
         ),
         DIALER(
             3,
-            "8", // thermal-phone.conf
+            "5", // thermal-phone.conf
             "thermal.dialer=",
             R.string.thermal_dialer,
         ),
         GAMING(
             4,
-            "9", // thermal-tgame.conf
+            "18", // thermal-tgame.conf
             "thermal.gaming=",
             R.string.thermal_gaming,
         ),
         NAVIGATION(
             5,
-            "19", // thermal-navigation.conf
+            "10", // thermal-navigation.conf
             "thermal.navigation=",
             R.string.thermal_navigation,
         ),
         VIDEOCALL(
             6,
-            "4", // thermal-videochat.conf
+            "14", // thermal-videochat.conf
             "thermal.streaming=",
             R.string.thermal_streaming,
         ),
         VIDEO(
             7,
-            "21", // thermal-video.conf
+            "11", // thermal-video.conf
             "thermal.video=",
             R.string.thermal_video,
         ),
