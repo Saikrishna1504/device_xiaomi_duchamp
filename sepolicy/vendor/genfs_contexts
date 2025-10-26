@@ -26,12 +26,12 @@ genfscon sysfs /devices/platform/11b72000.i2c/i2c-10/10-0055/verify_digest      
 genfscon sysfs /devices/platform/11b72000.i2c/i2c-10/10-006f/power_supply/cp_master                       u:object_r:sysfs_power_supply:s0
 genfscon sysfs /devices/platform/11f01000.i2c/i2c-5/5-0034/11f01000.i2c:mt6375@34:chg/power_supply/primary_chg u:object_r:sysfs_power_supply:s0
 genfscon sysfs /devices/platform/11f01000.i2c/i2c-5/5-0034/11f01000.i2c:mt6375@34:mtk-gauge/power_supply  u:object_r:sysfs_power_supply:s0
-genfscon sysfs /devices/platform/charger_gl/power_supply/mtk-master-charger                               u:object_r:sysfs_power_supply:s0
-genfscon sysfs /devices/platform/charger_gl/power_supply/mtk-mst-div-chg                                  u:object_r:sysfs_power_supply:s0
-genfscon sysfs /devices/platform/charger_gl/power_supply/mtk-mst-hvdiv-chg                                u:object_r:sysfs_power_supply:s0
-genfscon sysfs /devices/platform/charger_gl/power_supply/mtk-slv-div-chg                                  u:object_r:sysfs_power_supply:s0
-genfscon sysfs /devices/platform/charger_gl/power_supply/mtk-slv-hvdiv-chg                                u:object_r:sysfs_power_supply:s0
-genfscon sysfs /devices/platform/charger_gl/power_supply/usb                                              u:object_r:sysfs_power_supply:s0
+genfscon sysfs /devices/platform/charger/power_supply/mtk-master-charger                                  u:object_r:sysfs_power_supply:s0
+genfscon sysfs /devices/platform/charger/power_supply/mtk-mst-div-chg                                     u:object_r:sysfs_power_supply:s0
+genfscon sysfs /devices/platform/charger/power_supply/mtk-mst-hvdiv-chg                                   u:object_r:sysfs_power_supply:s0
+genfscon sysfs /devices/platform/charger/power_supply/mtk-slv-div-chg                                     u:object_r:sysfs_power_supply:s0
+genfscon sysfs /devices/platform/charger/power_supply/mtk-slv-hvdiv-chg                                   u:object_r:sysfs_power_supply:s0
+genfscon sysfs /devices/platform/charger/power_supply/usb                                                 u:object_r:sysfs_power_supply:s0
 genfscon sysfs /devices/platform/pd-adapter/Charging_Adapter/pd_adapter/                                  u:object_r:sysfs_power_supply:s0
 
 # Trusted Execution Environment (TEE)
@@ -54,12 +54,11 @@ genfscon sysfs /devices/platform/11f01000.i2c/i2c-5/5-0034/11f01000.i2c:mt6375@3
 genfscon sysfs /devices/platform/11f01000.i2c/i2c-5/5-0034/11f01000.i2c:mt6375@34:tcpc/tcpc/type_c_port0/wakeup         u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/11f01000.i2c/i2c-5/5-0034/11f01000.i2c:mt6375@34:tcpc/wakeup                           u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/11f01000.i2c/i2c-5/5-0034/wakeup                                                       u:object_r:sysfs_wakeup:s0
-genfscon sysfs /devices/platform/charger_gl/power_supply/mtk-master-charger/wakeup                                      u:object_r:sysfs_wakeup:s0
-genfscon sysfs /devices/platform/charger_gl/power_supply/mtk-mst-div-chg/wakeup                                         u:object_r:sysfs_wakeup:s0
-genfscon sysfs /devices/platform/charger_gl/power_supply/mtk-mst-hvdiv-chg/wakeup                                       u:object_r:sysfs_wakeup:s0
-genfscon sysfs /devices/platform/charger_gl/power_supply/mtk-slv-div-chg/wakeup                                         u:object_r:sysfs_wakeup:s0
-genfscon sysfs /devices/platform/charger_gl/power_supply/mtk-slv-hvdiv-chg/wakeup                                       u:object_r:sysfs_wakeup:s0
-genfscon sysfs /devices/platform/charger_gl/power_supply/usb/wakeup                                                     u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/charger/power_supply/mtk-mst-div-chg/wakeup                                            u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/charger/power_supply/mtk-mst-hvdiv-chg/wakeup                                          u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/charger/power_supply/mtk-slv-div-chg/wakeup                                            u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/charger/power_supply/mtk-slv-hvdiv-chg/wakeup                                          u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/charger/power_supply/usb/wakeup                                                        u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/goodix_ts.0/wakeup                                                                     u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/odm/odm:xiaomi_fingerprint/wakeup                                                      u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/11012000.spi2/spi_master/spi2/spi2.0/wakeup                                        u:object_r:sysfs_wakeup:s0
