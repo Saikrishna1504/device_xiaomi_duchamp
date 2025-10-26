@@ -23,6 +23,9 @@
 #define COMMAND_NIT 10
 #define TARGET_BRIGHTNESS_OFF 0
 #define TARGET_BRIGHTNESS_1000NIT 1
+#define TARGET_BRIGHTNESS_110NIT 6
+
+#define LOW_BRIGHTNESS_THRESHHOLD 100
 
 #define COMMAND_FOD_PRESS_STATUS 1
 #define PARAM_FOD_PRESSED 1
@@ -128,11 +131,28 @@ class XiaomiMt6897UdfpsHandler : public UdfpsHandler {
                 int value = response->data[0];
                 LOG(DEBUG) << "received data: " << std::bitset<8>(value);
 
+                int brightness = LOW_BRIGHTNESS_THRESHHOLD;
+                struct disp_brightness_req brightness_req = {
+                        .base = displayBasePrimary,
+                        .brightness = 0,
+                        .brightness_clone = 0,
+                };
+                rc = ioctl(disp_fd_.get(), MI_DISP_IOCTL_GET_BRIGHTNESS, &brightness_req);
+                if (rc < 0) {
+                    LOG(ERROR) << "failed to get brightness, err: " << rc;
+                    continue;
+                }
+
+                brightness = brightness_req.brightness;
+                LOG(DEBUG) << "brightness is: " << (int)brightness_req.brightness;
+
+                requestLowBrightness = brightness < LOW_BRIGHTNESS_THRESHHOLD;
                 bool localHbmUiReady = value & LOCAL_HBM_UI_READY;
 
-                mDevice->extCmd(
-                        mDevice, COMMAND_NIT,
-                        localHbmUiReady ? TARGET_BRIGHTNESS_1000NIT : TARGET_BRIGHTNESS_OFF);
+                mDevice->extCmd(mDevice, COMMAND_NIT,
+                                localHbmUiReady ? (requestLowBrightness ? TARGET_BRIGHTNESS_110NIT
+                                                                        : TARGET_BRIGHTNESS_1000NIT)
+                                                : TARGET_BRIGHTNESS_OFF);
             }
         }).detach();
     }
@@ -145,7 +165,8 @@ class XiaomiMt6897UdfpsHandler : public UdfpsHandler {
         // Request HBM
         struct disp_local_hbm_req displayLhbmRequest = {
                 .base = displayBasePrimary,
-                .local_hbm_value = LHBM_TARGET_BRIGHTNESS_WHITE_1000NIT,
+                .local_hbm_value = requestLowBrightness ? LHBM_TARGET_BRIGHTNESS_WHITE_110NIT
+                                                        : LHBM_TARGET_BRIGHTNESS_WHITE_1000NIT,
         };
         ioctl(disp_fd_.get(), MI_DISP_IOCTL_SET_LOCAL_HBM, &displayLhbmRequest);
 
@@ -198,6 +219,7 @@ class XiaomiMt6897UdfpsHandler : public UdfpsHandler {
     fingerprint_device_t* mDevice;
     android::base::unique_fd touch_fd_;
     android::base::unique_fd disp_fd_;
+    bool requestLowBrightness;
 
     void setFingerDown(bool pressed) {
         int buf[MAX_BUF_SIZE] = {MI_DISP_PRIMARY, Touch_Fod_Enable, pressed ? 1 : 0};
