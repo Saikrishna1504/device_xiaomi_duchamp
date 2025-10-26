@@ -102,6 +102,8 @@ private constructor(
     }
 
     private fun getDefaultStateForPackage(packageName: String): ThermalState {
+        if (BENCHMARKING_APPS.contains(packageName)) return ThermalState.BENCHMARK
+
         runCatching { context.packageManager.getApplicationInfo(packageName, 0) }
             .onSuccess {
                 when (it.category) {
@@ -117,7 +119,6 @@ private constructor(
         return when {
             NAVIGATION_PACKAGES.contains(packageName) -> ThermalState.NAVIGATION
             VIDEO_CALL_PACKAGES.contains(packageName) -> ThermalState.VIDEOCALL
-            BENCHMARKING_APPS.contains(packageName) -> ThermalState.BENCHMARK
             getDefaultDialerApplication(context) == packageName -> ThermalState.DIALER
             isBrowserApp(context, packageName, UserHandle.myUserId()) -> ThermalState.BROWSER
             isCameraApp(packageName) -> ThermalState.CAMERA
