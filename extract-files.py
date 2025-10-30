@@ -30,8 +30,11 @@ def lib_fixup_vendor_suffix(lib: str, partition: str, *args, **kwargs):
 
 lib_fixups: lib_fixups_user_type = {
     **lib_fixups,
-    ('libmialgo_aio_seg',
+    ('libjpegdecoder',
+     'libjpegencoder',
+     'libmialgo_aio_seg',
      'libmialgo_utils',
+     'libultrahdr',
      'vendor.mediatek.hardware.videotelephony-V1-ndk',
      'vendor.mediatek.hardware.camera.isphal@1.0',
      'vendor.mediatek.hardware.camera.isphal-V1-ndk',): lib_fixup_vendor_suffix,
@@ -113,9 +116,6 @@ blob_fixups: blob_fixups_user_type = {
         .clear_symbol_version('AHardwareBuffer_lockPlanes')
         .clear_symbol_version('AHardwareBuffer_release')
         .clear_symbol_version('AHardwareBuffer_unlock'),
-
-    'vendor/lib64/mt6897/libmtkcam_hwnode.jpegnode.so': blob_fixup()
-        .add_needed('libultrahdr_shim.so'),
 
     'system_ext/lib64/vendor.mediatek.hardware.camera.isphal-V1-ndk.so': blob_fixup()
         .replace_needed('android.hardware.graphics.common-V5-ndk.so', 'android.hardware.graphics.common-V6-ndk.so'),

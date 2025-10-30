@@ -4,17 +4,6 @@
 // SPDX-License-Identifier: Apache-2.0
 //
 
-cc_library_shared {
-    name: "libultrahdr_shim",
-    srcs: ["libultrahdr_shim.cpp"],
-    compile_multilib: "64",
-    shared_libs: [
-        "libjpeg",
-        "libultrahdr",
-    ],
-    vendor: true,
-}
-
 cc_library {
     name: "libgui_shim_miuicamera",
     srcs: ["libgui_shim_miuicamera.c"],
