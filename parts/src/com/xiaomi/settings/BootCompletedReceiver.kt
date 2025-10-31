@@ -34,13 +34,14 @@ class BootCompletedReceiver : BroadcastReceiver() {
     }
 
     private fun onBootCompleted(context: Context) {
-        // Thermal
-        ThermalUtils.getInstance(context).startService()
     }
 
     private fun onLockedBootCompleted(context: Context) {
         // Display
         context.startServiceAsUser(Intent(context, ColorService::class.java), UserHandle.CURRENT)
+
+        // Thermal
+        ThermalUtils.getInstance(context).startService()
 
         // Override HDR types to enable Dolby Vision
         val displayManager = context.getSystemService(DisplayManager::class.java)

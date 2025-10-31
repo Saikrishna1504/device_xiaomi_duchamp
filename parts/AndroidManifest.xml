@@ -8,14 +8,7 @@
     package="com.xiaomi.settings"
     android:sharedUserId="android.uid.system">
 
-    <uses-permission android:name="android.permission.ACCESS_SURFACE_FLINGER" />
-    <uses-permission android:name="android.permission.GET_TASKS" />
-    <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
-    <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS" />
 
     <application
         android:label="@string/app_name"
@@ -28,18 +21,19 @@
             android:exported="true">
             <intent-filter android:priority="1000">
                 <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
 
         <service
-            android:name=".display.ColorModeService"
-            android:permission="ColorModeService">
+            android:name=".display.ColorService"
+            android:permission="ColorService">
         </service>
 
-	<service
+        <service
             android:name=".thermal.ThermalService"
             android:permission="ThermalService">
-	</service>
+        </service>
 
         <activity
             android:name=".thermal.ThermalSettingsActivity"
