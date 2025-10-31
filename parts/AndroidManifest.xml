@@ -26,11 +26,6 @@
         </receiver>
 
         <service
-            android:name=".display.ColorService"
-            android:permission="ColorService">
-        </service>
-
-        <service
             android:name=".thermal.ThermalService"
             android:permission="ThermalService">
         </service>
