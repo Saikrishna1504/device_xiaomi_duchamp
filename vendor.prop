@@ -303,6 +303,10 @@ telephony.active_modems.max_count=2
 telephony.lteOnCdmaDevice=1
 import /vendor/etc/rsc/${ro.boot.rsc}.prop
 
+# ScrollOptimizer
+persist.sys.perf.scroll_opt=true
+persist.sys.perf.scroll_opt.heavy_app=1
+
 # Sensors
 persist.vendor.sensor.maxbrightness=8191
 persist.vendor.sensor.powbrightness=400
