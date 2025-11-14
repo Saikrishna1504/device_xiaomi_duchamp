@@ -108,6 +108,10 @@ PRODUCT_PACKAGES += \
     android.hardware.bluetooth-service.mediatek \
     android.hardware.bluetooth.audio-impl
 
+# Bootanimation
+TARGET_SCREEN_WIDTH := 1220
+TARGET_SCREEN_HEIGHT := 2712
+
 # ConsumerIr
 PRODUCT_PACKAGES += \
     android.hardware.ir-service.example
