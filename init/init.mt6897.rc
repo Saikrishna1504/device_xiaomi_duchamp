@@ -311,3 +311,10 @@ on property:ro.boot.slot_suffix=_b
 # reset mdmode when modem crash happens in ATM
 on property:vendor.mtk.md1.status=reset
     setprop persist.vendor.atm.mdmode normal
+
+# High touch sampling rate nodes
+on property:persist.vendor.touch_sensitivity_mode=0 && property:sys.boot_completed=1
+    write /sys/devices/virtual/touch/touch_dev/bump_sample_rate 0
+
+on property:persist.vendor.touch_sensitivity_mode=1 && property:sys.boot_completed=1
+    write /sys/devices/virtual/touch/touch_dev/bump_sample_rate 1
