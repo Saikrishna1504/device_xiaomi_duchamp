@@ -64,6 +64,7 @@ PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
 # Audio
 TARGET_EXCLUDES_AUDIOFX := true
+$(call soong_config_set_bool,android_hardware_audio,skip_speaker_layout_channel_mask_field,true)
 
 PRODUCT_PACKAGES += \
     android.hardware.audio.service \
