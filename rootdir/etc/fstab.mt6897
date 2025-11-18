@@ -30,7 +30,7 @@ system_dlkm                      /system_dlkm           ext4    noatime,ro   wai
 
 # Userdata
 /dev/block/by-name/metadata      /metadata              f2fs    noatime,nosuid,nodev   wait,check,formattable,first_stage_mount
-/dev/block/by-name/userdata      /data                  f2fs    noatime,nosuid,nodev,gc_merge,discard,noflush_merge,fsync_mode=nobarrier,reserve_root=32768,resgid=1065,compress_extension=apk,compress_extension=so,compress_extension=vdex,compress_extension=odex,inlinecrypt,atgc   wait,check,formattable,quota,latemount,reservedsize=128m,checkpoint=fs,fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized,keydirectory=/metadata/vold/metadata_encryption,fsverity,sysfs_path=/sys/devices/platform/soc/112b0000.ufshci,readahead_size_kb=128
+/dev/block/by-name/userdata      /data                  f2fs    noatime,nosuid,nodev,discard,noflush_merge,fsync_mode=nobarrier,reserve_root=32768,resgid=1065,checkpoint_merge,compress_cache,compress_extension=apk,compress_extension=so,compress_extension=vdex,compress_extension=odex,inlinecrypt,atgc   wait,check,formattable,quota,latemount,reservedsize=128m,fscompress,checkpoint=fs,fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized,keydirectory=/metadata/vold/metadata_encryption,fsverity,sysfs_path=/sys/devices/platform/soc/112b0000.ufshci,readahead_size_kb=128
 
 # Firmware
 /dev/block/by-name/apusys1       /apusys1            emmc   defaults   defaults
