@@ -368,6 +368,8 @@ PRODUCT_PACKAGES += \
 $(call inherit-product, vendor/qcom/opensource/vibrator/vibrator-vendor-product.mk)
 
 # Wi-Fi
+$(call soong_config_set_bool,wpa_supplicant_8,wifi_disable_multi_akm,true)
+
 PRODUCT_PACKAGES += \
     android.hardware.wifi-service \
     hostapd \
