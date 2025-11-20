@@ -7,6 +7,7 @@ vendor/lib64/libaedv.so
 vendor/etc/audio_param/FV-SAM-MTKXX.dat
 vendor/etc/smartpa_param/AW_DSP.bin
 vendor/firmware/aw882xx_acf.bin
+vendor/lib64/hw/android.hardware.audio@7.1-impl-mediatek.so
 vendor/lib64/hw/audio.primary.mediatek.so;SYMLINK=vendor/lib64/hw/audio.primary.mt6897.so
 vendor/lib64/hw/audio.r_submix.mediatek.so;SYMLINK=vendor/lib64/hw/audio.r_submix.mt6897.so
 vendor/lib64/hw/sound_trigger.primary.default.so
