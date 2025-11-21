@@ -65,6 +65,13 @@ vendor/lib64/vendor.mediatek.hardware.audio@8.1.so
 vendor/lib64/vendor.mediatek.hardware.mbrain-V1-ndk.so
 
 # Audio Configs
+vendor/etc/audio_device.xml
+vendor/etc/aurisys_config.xml
+vendor/etc/aurisys_config_hifi3.xml
+vendor/etc/aurisys_config_rv.xml
+vendor/etc/usb_audio_accessory_only_policy_configuration.xml
+
+# Audio (Parameters)
 vendor/etc/audio_param/AudioParamOptions_mgvi.xml
 vendor/etc/audio_param/AudioParamOptions_vext.xml
 vendor/etc/audio_param/BtInfo_AudioParam.xml
