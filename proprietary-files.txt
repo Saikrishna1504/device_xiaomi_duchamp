@@ -190,9 +190,6 @@ vendor/etc/audiodata.db
 vendor/etc/misound_res_headphone.bin
 vendor/etc/misound_res_spk.bin
 
-# Audio Firmware
-vendor/firmware/aw882xx_acf.bin
-
 # Batterysecret
 vendor/bin/batterysecret
 
