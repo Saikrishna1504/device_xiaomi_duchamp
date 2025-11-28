@@ -201,7 +201,6 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
    LineageApertureOverlayDuchamp \
-   LineageDialerDuchamp \
    LineageSDKOverlayDuchamp \
    LineageSettingsOverlayDuchamp
 
