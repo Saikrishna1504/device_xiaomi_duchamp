@@ -30,11 +30,8 @@ def lib_fixup_vendor_suffix(lib: str, partition: str, *args, **kwargs):
 
 lib_fixups: lib_fixups_user_type = {
     **lib_fixups,
-    ('libjpegdecoder',
-     'libjpegencoder',
-     'libmialgo_aio_seg',
+    ('libmialgo_aio_seg',
      'libmialgo_utils',
-     'libultrahdr',
      'vendor.mediatek.hardware.videotelephony-V1-ndk',
      'vendor.mediatek.hardware.camera.isphal@1.0',
      'vendor.mediatek.hardware.camera.isphal-V1-ndk',): lib_fixup_vendor_suffix,
@@ -133,6 +130,13 @@ blob_fixups: blob_fixups_user_type = {
 
     'vendor/etc/init/vendor.xiaomi.hardware.vibratorfeature.service.rc': blob_fixup()
         .regex_replace('odm', 'vendor'),
+
+    'vendor/lib64/mt6897/libmtkcam_hwnode.jpegnode.so': blob_fixup()
+        .replace_needed('libultrahdr.so', 'libultrahdr-v34.so'),
+
+    'vendor/lib64/libultrahdr-v34.so': blob_fixup()
+        .replace_needed('libjpegencoder.so', 'libjpegencoder-v34.so')
+        .replace_needed('libjpegdecoder.so', 'libjpegdecoder-v34.so'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
