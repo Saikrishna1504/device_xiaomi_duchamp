@@ -1296,6 +1296,7 @@ odm/etc/disp0/dsi_n11a_42_02_0a_dsc_vdo/miLut_9.txt
 vendor/firmware/focaltech_ts_fw.bin
 vendor/firmware/goodix_cfg_group_duchamp.bin
 vendor/firmware/goodix_firmware_duchamp.bin
+vendor/firmware/goodix_test_limits_255.csv
 
 # DRM
 vendor/apex/com.google.android.widevine.nonupdatable.apex
