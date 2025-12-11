@@ -53,11 +53,13 @@ blob_fixups: blob_fixups_user_type = {
         .add_needed('libaudioclient_shim.so'),
 
     'odm/bin/hw/vendor.xiaomi.sensor.citsensorservice.aidl': blob_fixup()
+        .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so')
         .add_needed('libui_shim.so'),
 
     'vendor/lib64/hw/audio.primary.mediatek.so': blob_fixup()
         .replace_needed('android.hardware.bluetooth.audio-V3-ndk.so', 'android.hardware.bluetooth.audio-V3-ndk-v34.so')
         .replace_needed('libalsautils.so', 'libalsautils-v34.so')
+        .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so')
         .binary_regex_replace(b'A2dpsuspendonly', b'A2dpSuspended\x00\x00')
         .binary_regex_replace(b'BTAudiosuspend', b'A2dpSuspended\x00'),
 
@@ -203,6 +205,16 @@ blob_fixups: blob_fixups_user_type = {
      'vendor/lib64/hw/audio.bluetooth.default.so',
      'vendor/lib64/libbluetooth_audio_session_aidl_mtk.so'): blob_fixup()
         .replace_needed('android.hardware.bluetooth.audio-V3-ndk.so', 'android.hardware.bluetooth.audio-V3-ndk-v34.so'),
+
+    ('odm/lib64/hw/displayfeature.default.so',
+     'vendor/lib64/hw/mt6897/vendor.mediatek.hardware.pq_aidl-impl.so',
+     'vendor/lib64/libaudiocloudctrl.so',
+     'vendor/lib64/libpqxmlflagparser.so',
+     'vendor/lib64/libpqxmlparser.so',
+     'vendor/lib64/librt_extamp_intf.so',
+     'vendor/lib64/libsilkybrightnesscore.so',
+     'vendor/lib64/mt6897/libmmlpqImpl.so'): blob_fixup()
+        .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
