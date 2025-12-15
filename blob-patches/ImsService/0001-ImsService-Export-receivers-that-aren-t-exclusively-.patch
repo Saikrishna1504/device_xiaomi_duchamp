@@ -1,21 +1,22 @@
-diff --git a/AndroidManifest.xml b/AndroidManifest.xml
-index 1c82b5d..5a90ab2 100644
---- a/AndroidManifest.xml
-+++ b/AndroidManifest.xml
-@@ -52,6 +52,13 @@
-     <application android:allowBackup="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:directBootAware="true" android:extractNativeLibs="false" android:label="ImsApp" android:name="com.mediatek.ims.ImsApp" android:persistent="true" android:usesNonSdkApi="true">
-         <uses-library android:name="com.mediatek.ims.oemplugin" android:required="false"/>
-         <uses-library android:name="com.mediatek.ims.plugin" android:required="false"/>
-+        <uses-library android:name="mediatek-common" android:required="true"/>
-+        <uses-library android:name="mediatek-framework" android:required="true"/>
-+        <uses-library android:name="mediatek-ims-base" android:required="true"/>
-+        <uses-library android:name="mediatek-ims-common" android:required="true"/>
-+        <uses-library android:name="mediatek-telecom-common" android:required="true"/>
-+        <uses-library android:name="mediatek-telephony-base" android:required="true"/>
-+        <uses-library android:name="mediatek-telephony-common" android:required="true"/>
-         <service android:exported="true" android:name="com.mediatek.ims.MtkDynamicImsService" android:permission="android.permission.BIND_IMS_SERVICE">
-             <meta-data android:name="android.telephony.ims.RCS_FEATURE" android:value="true"/>
-             <meta-data android:name="android.telephony.ims.MMTEL_FEATURE" android:value="true"/>
+From ec6118e4fd283bf6fa139483596fb7e3cc02a58f Mon Sep 17 00:00:00 2001
+From: bengris32 <bengris32@protonmail.ch>
+Date: Thu, 6 Mar 2025 19:27:12 +0530
+Subject: [PATCH 1/3] ImsService: Export receivers that aren't exclusively
+ registered for system broadcasts
+
+Change-Id: I5a125a3164e69ef86d51b0781947089b89fe9cc1
+---
+ smali/com/mediatek/ims/ImsConfigManager.smali               | 6 ++++--
+ smali/com/mediatek/ims/MtkSuppServExt.smali                 | 6 ++++--
+ .../mediatek/ims/config/internal/ImsConfigController.smali  | 6 ++++--
+ smali/com/mediatek/ims/internal/ImsVTProviderUtil.smali     | 6 ++++--
+ .../com/mediatek/ims/rcs/MtkRcsCapabilityExchangeImpl.smali | 6 ++++--
+ smali/com/mediatek/wfo/impl/ImsLocationHandler.smali        | 6 ++++--
+ smali/com/mediatek/wfo/impl/MwiService.smali                | 6 ++++--
+ smali/com/mediatek/wfo/impl/WfcHandler.smali                | 6 ++++--
+ smali/com/mediatek/wfo/impl/WifiPdnHandler.smali            | 6 ++++--
+ 9 files changed, 36 insertions(+), 18 deletions(-)
+
 diff --git a/smali/com/mediatek/ims/ImsConfigManager.smali b/smali/com/mediatek/ims/ImsConfigManager.smali
 index d287579..99367fe 100644
 --- a/smali/com/mediatek/ims/ImsConfigManager.smali
@@ -40,21 +41,6 @@ index d287579..99367fe 100644
  
      .line 151
      return-void
-diff --git a/smali/com/mediatek/ims/ImsService$MyHandler.smali b/smali/com/mediatek/ims/ImsService$MyHandler.smali
-index 7c0dc16..e5758ae 100644
---- a/smali/com/mediatek/ims/ImsService$MyHandler.smali
-+++ b/smali/com/mediatek/ims/ImsService$MyHandler.smali
-@@ -3255,7 +3255,9 @@
- 
-     move-result-object v7
- 
--    invoke-virtual {v6, v7, v5}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
-+    const/4 v8, 0x2
-+
-+    invoke-virtual {v6, v7, v5, v8}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;I)Landroid/content/Intent;
- 
-     .line 2757
-     .end local v5    # "filter":Landroid/content/IntentFilter;
 diff --git a/smali/com/mediatek/ims/MtkSuppServExt.smali b/smali/com/mediatek/ims/MtkSuppServExt.smali
 index 677c026..a41c4da 100644
 --- a/smali/com/mediatek/ims/MtkSuppServExt.smali
@@ -127,6 +113,30 @@ index d4863a7..d3b7311 100644
  
      .line 859
      .end local v0    # "filter":Landroid/content/IntentFilter;
+diff --git a/smali/com/mediatek/ims/rcs/MtkRcsCapabilityExchangeImpl.smali b/smali/com/mediatek/ims/rcs/MtkRcsCapabilityExchangeImpl.smali
+index aab7b89..2b0383c 100644
+--- a/smali/com/mediatek/ims/rcs/MtkRcsCapabilityExchangeImpl.smali
++++ b/smali/com/mediatek/ims/rcs/MtkRcsCapabilityExchangeImpl.smali
+@@ -220,7 +220,7 @@
+ .end method
+ 
+ .method public constructor <init>(ILandroid/content/Context;Landroid/telephony/ims/stub/CapabilityExchangeEventListener;)V
+-    .locals 5
++    .locals 6
+     .param p1, "slotId"    # I
+     .param p2, "context"    # Landroid/content/Context;
+     .param p3, "listener"    # Landroid/telephony/ims/stub/CapabilityExchangeEventListener;
+@@ -384,7 +384,9 @@
+ 
+     invoke-direct {v3, v4}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
+ 
+-    invoke-virtual {v1, v2, v3}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
++    const/4 v4, 0x2
++
++    invoke-virtual {v1, v2, v3, v4}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;I)Landroid/content/Intent;
+ 
+     goto :goto_0
+ 
 diff --git a/smali/com/mediatek/wfo/impl/ImsLocationHandler.smali b/smali/com/mediatek/wfo/impl/ImsLocationHandler.smali
 index 509ed5e..69e7cc1 100644
 --- a/smali/com/mediatek/wfo/impl/ImsLocationHandler.smali
@@ -226,3 +236,6 @@ index d0f17b0..5ec5c3f 100644
  
      .line 772
      return-void
+-- 
+2.43.0
+
