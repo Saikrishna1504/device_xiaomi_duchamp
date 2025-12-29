@@ -194,6 +194,9 @@ blob_fixups: blob_fixups_user_type = {
     'vendor/lib64/libcodec2_vndk-v34.so': blob_fixup()
         .replace_needed('libui.so', 'libui-v34.so')
         .replace_needed('android.hardware.media.bufferpool2-V1-ndk.so', 'android.hardware.media.bufferpool2-V2-ndk.so'),
+
+    'vendor/lib64/hw/android.hardware.soundtrigger3-impl.so': blob_fixup()
+        .replace_needed('android.hardware.soundtrigger3-V1-ndk.so', 'android.hardware.soundtrigger3-V3-ndk.so'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(

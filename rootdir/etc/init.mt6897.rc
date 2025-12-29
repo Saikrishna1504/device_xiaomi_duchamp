@@ -336,7 +336,7 @@ on property:vendor.audio.voice.receiver.status=on
 on property:vendor.audio.voice.receiver.status=off
     write /sys/class/thermal/thermal_message/voice_receiver_state 10001
 
-service vendor.audio-hal /vendor/bin/hw/android.hardware.audio.service
+service vendor.audio-hal /vendor/bin/hw/android.hardware.audio.service.mediatek
     override
     class hal
     user audioserver
