@@ -8,6 +8,9 @@ binder_use(vendor_hal_displayfeature_default)
 hal_client_domain(vendor_hal_displayfeature_default, vendor_hal_displayfeature)
 hal_server_domain(vendor_hal_displayfeature_default, vendor_hal_displayfeature)
 
+hal_client_domain(vendor_hal_displayfeature_default, hal_allocator)
+hal_client_domain(vendor_hal_displayfeature_default, hal_mtk_pq)
+
 r_dir_file(vendor_hal_displayfeature_default, mnt_vendor_file)
 r_dir_file(vendor_hal_displayfeature_default, sysfs_leds)
 r_dir_file(vendor_hal_displayfeature_default, sysfs_therm)
@@ -21,6 +24,8 @@ allow vendor_hal_displayfeature_default persist_data_file:file create_file_perms
 
 allow vendor_hal_displayfeature_default sysfs_leds:file w_file_perms;
 allow vendor_hal_displayfeature_default sysfs_therm:file w_file_perms;
+allow vendor_hal_displayfeature_default vendor_display_data_file:dir create_dir_perms;
+allow vendor_hal_displayfeature_default vendor_display_data_file:file create_file_perms;
 allow vendor_hal_displayfeature_default vendor_displayfeature_sysfs:file w_file_perms;
 
 set_prop(vendor_hal_displayfeature_default, vendor_displayfeature_prop)

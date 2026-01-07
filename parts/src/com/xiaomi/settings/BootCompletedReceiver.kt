@@ -14,6 +14,7 @@ import android.os.UserHandle
 import android.util.Log
 import android.view.Display
 import android.view.Display.HdrCapabilities
+import com.xiaomi.settings.display.ColorService
 import com.xiaomi.settings.thermal.ThermalUtils
 
 /** Everything begins at boot. */
@@ -36,6 +37,9 @@ class BootCompletedReceiver : BroadcastReceiver() {
     }
 
     private fun onLockedBootCompleted(context: Context) {
+        // Display
+        context.startServiceAsUser(Intent(context, ColorService::class.java), UserHandle.CURRENT)
+
         // Thermal
         ThermalUtils.getInstance(context).startService()
 

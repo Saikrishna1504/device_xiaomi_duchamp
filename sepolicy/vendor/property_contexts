@@ -7,6 +7,7 @@ persist.vendor.camera.     u:object_r:vendor_mtk_camera_prop:s0
 
 # Display
 persist.vendor.dc_backlight.enable             u:object_r:vendor_displayfeature_prop:s0
+persist.vendor.max.brightness                  u:object_r:vendor_displayfeature_prop:s0
 ro.vendor.cabc.enable                          u:object_r:vendor_displayfeature_prop:s0
 ro.vendor.display.all_modes_support_WCG.enable u:object_r:vendor_displayfeature_prop:s0
 ro.vendor.display.update_gray_by_temperature   u:object_r:vendor_displayfeature_prop:s0

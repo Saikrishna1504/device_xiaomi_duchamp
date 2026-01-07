@@ -27,4 +27,28 @@
          should be either LOW (1) or HIGH (3).
     -->
     <integer name="config_vibration_supported_intensity_levels">3</integer>
+
+    <!-- Display settings screen, Color mode options. Must be the same length and order as
+         config_color_mode_options_values below. Only the values that also appear in
+         frameworks/base/core/res/res/values/config.xml's config_availableColorModes are shown. -->
+    <string-array name="config_color_mode_options_strings" translatable="false">
+        <item>Standard</item>   <!-- standard -->
+        <item>Vivid</item>      <!-- vivid -->
+        <item>Saturated</item>  <!-- saturated -->
+        <item>Original</item>   <!-- Expert original -->
+        <item>P3</item>         <!-- Expert P3 -->
+        <item>sRGB</item>       <!-- Expert sRGB -->
+    </string-array>
+
+    <!-- Display settings screen, Color mode options. Must be the same length and order as
+         config_color_mode_options_strings above. Only the values that also appear in
+         frameworks/base/core/res/res/values/config.xml's config_availableColorModes are shown. -->
+    <integer-array name="config_color_mode_options_values" translatable="false">
+        <item>257</item> <!-- standard -->
+        <item>258</item> <!-- vivid -->
+        <item>256</item> <!-- saturated -->
+        <item>269</item> <!-- expert original -->
+        <item>268</item> <!-- expert P3 -->
+        <item>267</item> <!-- expert sRGB -->
+    </integer-array>
 </resources>
