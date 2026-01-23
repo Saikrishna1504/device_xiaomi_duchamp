@@ -37,7 +37,6 @@ vendor/lib64/libcvsd_mtk.so
 vendor/lib64/libfvaudio.so
 vendor/lib64/libladder.so
 vendor/lib64/libmbrainSDKv.so
-vendor/lib64/libmisound.so
 vendor/lib64/libmisoundcrossfade.so;FIX_SONAME
 vendor/lib64/libmisoundfpsop.so
 vendor/lib64/libmispowerop.so
@@ -66,7 +65,6 @@ vendor/lib64/vendor.mediatek.hardware.mbrain-V1-ndk.so
 
 # Audio Configs
 vendor/etc/audio_device.xml
-vendor/etc/aurisys_config.xml
 vendor/etc/aurisys_config_hifi3.xml
 vendor/etc/aurisys_config_rv.xml
 vendor/etc/usb_audio_accessory_only_policy_configuration.xml
@@ -194,8 +192,6 @@ vendor/etc/audio_param/VolumeGainMap_ParamUnitDesc.xml
 vendor/etc/audio_param/Volume_AudioParam.xml
 vendor/etc/audio_param/Volume_ParamUnitDesc.xml
 vendor/etc/audiodata.db
-vendor/etc/misound_res_headphone.bin
-vendor/etc/misound_res_spk.bin
 
 # Batterysecret
 vendor/bin/batterysecret
