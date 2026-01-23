@@ -361,7 +361,6 @@ PRODUCT_PACKAGES += \
     vibratorfeature-wrapper
 
 # Wi-Fi
-$(call soong_config_set_bool,wpa_supplicant_8,board_wlan_mediatek_stability,true)
 PRODUCT_PACKAGES += \
     android.hardware.wifi-service \
     hostapd \
