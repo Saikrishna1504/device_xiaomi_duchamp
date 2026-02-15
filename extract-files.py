@@ -116,9 +116,6 @@ blob_fixups: blob_fixups_user_type = {
     'vendor/etc/vintf/manifest/manifest_media_c2_V1_2_default.xml': blob_fixup()
         .regex_replace('.+dolby.+\n', ''),
 
-    'vendor/etc/init/vendor.xiaomi.hardware.vibratorfeature.service.rc': blob_fixup()
-        .regex_replace('odm', 'vendor'),
-
     'vendor/lib64/mt6897/libmtkcam_hwnode.jpegnode.so': blob_fixup()
         .replace_needed('libultrahdr.so', 'libultrahdr-v34.so'),
 

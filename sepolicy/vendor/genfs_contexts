@@ -72,7 +72,3 @@ genfscon sysfs /devices/virtual/power_supply/mtk-gauge/wakeup                   
 
 # USB
 genfscon sysfs /devices/platform/rt-pd-manager/typec/port0                         u:object_r:sysfs_usb_nonplat:s0
-
-# Vibrator
-genfscon sysfs /devices/platform/11d00000.i2c/i2c-0/0-005a                         u:object_r:sysfs_vibrator:s0
-genfscon sysfs /devices/platform/11d00000.i2c/i2c-0/0-006b                         u:object_r:sysfs_vibrator:s0
