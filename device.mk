@@ -378,8 +378,7 @@ PRODUCT_PACKAGES += \
     vndservicemanager
 
 # Vibrator
-PRODUCT_PACKAGES += \
-    vibratorfeature-wrapper
+$(call inherit-product, vendor/qcom/opensource/vibrator/vibrator-vendor-product.mk)
 
 # Miui Camera Permissions
 PRODUCT_COPY_FILES += \
