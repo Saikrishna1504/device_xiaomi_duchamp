@@ -21,6 +21,8 @@ vendor.audio.usb.super_hifi=true
 vendor.audiohal.telephonytx.type=2
 
 # Bluetooth
+persist.bluetooth.a2dp_offload.disabled=false
+ro.bluetooth.a2dp_offload.supported=true
 ro.vendor.bt.connac3=no
 ro.vendor.bt.platform=6897
 
