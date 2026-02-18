@@ -83,6 +83,7 @@ on post-fs-data
 
     # Create Audio HAL data directory
     mkdir /data/vendor/audiohal 0771 system audio
+    mkdir /data/vendor/audio 0771 system audio
 
     #Create cct mount point
     mkdir /mnt/vendor/cct
