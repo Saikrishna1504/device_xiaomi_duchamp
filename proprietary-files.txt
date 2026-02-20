@@ -1610,6 +1610,8 @@ vendor/lib64/vendor.mediatek.hardware.mtkradioex.se-V1-ndk.so
 vendor/lib64/vendor.mediatek.hardware.mtkradioex.sim-V1-ndk.so
 vendor/lib64/vendor.mediatek.hardware.mtkradioex.smartratswitch-V1-ndk.so
 vendor/lib64/vendor.mediatek.hardware.mtkradioex.voice-V1-ndk.so
+vendor/lib64/vendor.mediatek.hardware.netdagent-V1-ndk.so
+vendor/lib64/vendor.mediatek.hardware.netdagent@1.0.so
 
 # Radio (Engineer Mode)
 system_ext/app/EngineerMode/EngineerMode.apk|212be01a370f9ea6a5176f9e7cf71fbbb8428465
@@ -1684,15 +1686,8 @@ vendor/lib64/vendor.xiaomi.sensor.citsensorservice-V1-ndk.so
 
 # Tether Offload
 vendor/bin/hw/tetheroffloadservice
-vendor/bin/netdagent
 vendor/etc/init/android.hardware.tetheroffload-V1-service.rc
-vendor/etc/init/netdagent.rc
-vendor/etc/vintf/manifest/CommandService.xml
 vendor/etc/vintf/manifest/android.hardware.tetheroffload-V1-service.xml
-vendor/lib64/libforkexecwrap.so
-vendor/lib64/libifcutils_mtk.so
-vendor/lib64/vendor.mediatek.hardware.netdagent-V1-ndk.so
-vendor/lib64/vendor.mediatek.hardware.netdagent@1.0.so
 
 # Thermal
 vendor/bin/mi_thermald
