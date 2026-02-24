@@ -288,6 +288,8 @@ PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(DEVICE_PATH)/configs/rsc,$(TARGET_COPY_OUT_VENDOR)/etc/rsc)
 
 # Radio (IMS)
+$(call inherit-product, hardware/lineage/compat/frameworks/compat.mk)
+
 PRODUCT_BOOT_JARS += \
     xiaomi-telephony-stub
 
