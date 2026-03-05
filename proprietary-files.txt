@@ -1,4 +1,5 @@
-# Unpinned blobs from duchamp_global-user 15 AP3A.240905.015.A2 OS2.0.205.0.VNLMIXM release-keys
+# Unpinned blobs from duchamp_global-user 15 AP3A.240905.015.A2 OS2.0.209.0.VNLMIXM release-keys
+# duchamp: duchamp_global-user 14 UP1A.230905.011 V816.0.2.0.UNLMIXM release-keys
 
 # AEE
 vendor/lib64/libaedv.so
@@ -1620,12 +1621,14 @@ vendor/lib64/vendor.mediatek.hardware.mtkradioex.voice-V1-ndk.so
 # Radio (Engineer Mode)
 system_ext/app/EngineerMode/EngineerMode.apk|212be01a370f9ea6a5176f9e7cf71fbbb8428465
 system_ext/lib64/libem_support_jni.so|a885a7aad38d2859a2b25acbaa4122128dc7e01b
-vendor/bin/em_hidl|27f401cfc142b5dd637079017718a8847344c64b
-vendor/etc/init/em_hal_user.rc|905551f5a66e4dff8750657d15483c295390492e
-vendor/etc/vintf/manifest/em_hal_service.xml|2c7fa8107b40125ba9c5618558aa40ea36a6cd40
-vendor/lib64/libbluetooth_relayer.so|9480f82d833353bdfd2ccd6e5b9e088ad8af8ff1
-vendor/lib64/libbluetoothem_mtk.so|a09bd5947466c6e6bf298a84e3127c1f9b1a84e4
-vendor/lib64/vendor.mediatek.hardware.engineermode-V1-ndk.so|c923c024e4b3268cda9704e25db29a99579c5846
+
+# Radio (Engineer Mode)
+vendor/bin/em_hidl
+vendor/etc/init/em_hal_user.rc
+vendor/etc/vintf/manifest/em_hal_service.xml
+vendor/lib64/libbluetooth_relayer.so
+vendor/lib64/libbluetoothem_mtk.so
+vendor/lib64/vendor.mediatek.hardware.engineermode-V1-ndk.so
 
 # Radio (IMS)
 system_ext/bin/vtservice

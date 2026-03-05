@@ -38,5 +38,5 @@ PRODUCT_CHARACTERISTICS := nosdcard
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    BuildFingerprint=POCO/duchamp_global/duchamp:14/UP1A.230905.011/OS2.0.205.0.VNLMIXM:user/release-keys \
+    BuildFingerprint=POCO/duchamp_global/duchamp:14/UP1A.230905.011/OS2.0.209.0.VNLMIXM:user/release-keys \
     DeviceProduct=$(PRODUCT_SYSTEM_NAME)
