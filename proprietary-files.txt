@@ -774,6 +774,7 @@ vendor/lib64/vendor.mediatek.hardware.camera.isphal@1.0.so;MODULE_SUFFIX=-vendor
 vendor/lib64/vendor.mediatek.hardware.camera.isphal@1.1.so
 vendor/lib64/vendor.mediatek.hardware.camera.postproc@1.0.so
 vendor/lib64/vendor.mediatek.hardware.camera.security@1.0.so
+vendor/lib64/vendor.mediatek.hardware.mtkpower-V1-ndk.so
 vendor/lib64/vendor.xiaomi.hardware.bgservice@1.0.so
 
 # Camera Configs
