@@ -1,6 +1,10 @@
 # Google Lens
 ro.com.google.lens.oem_camera_package=com.android.camera
 
+# IMS
+ro.vendor.mtk_cta_set=1
+ro.vendor.mtk_telephony_add_on_policy=0
+
 # Framework allowlists
 persist.vendor.camera.privapp.list=com.android.camera
 
