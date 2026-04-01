@@ -346,11 +346,6 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/mediatek/libmtkperf_client \
     hardware/xiaomi
 
-
-# Thermal files
-PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*,$(DEVICE_PATH)/configs/thermals/,$(TARGET_COPY_OUT_ODM)/etc)
-
 # Thermal
 PRODUCT_PACKAGES += \
     android.hardware.thermal-service.pixel \
