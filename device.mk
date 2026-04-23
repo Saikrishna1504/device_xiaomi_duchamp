@@ -90,6 +90,10 @@ PRODUCT_COPY_FILES += \
 PERF_GOV_SUPPORTED := true
 PERF_DEFAULT_GOV := schedutil
 
+# AxBurstengine
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/configs/axion/ax_perf_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/ax_perf_config.xml
+
 # Bluetooth
 PRODUCT_PACKAGES += \
     android.hardware.bluetooth-service.mediatek
