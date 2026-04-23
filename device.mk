@@ -90,9 +90,6 @@ PRODUCT_COPY_FILES += \
 PERF_GOV_SUPPORTED := true
 PERF_DEFAULT_GOV := schedutil
 
-GPU_FREQS_PATH := /sys/class/devfreq/13000000.mali/available_frequencies
-GPU_MIN_FREQ_PATH := /sys/class/devfreq/13000000.mali/min_freq
-
 # Bluetooth
 PRODUCT_PACKAGES += \
     android.hardware.bluetooth-service.mediatek
