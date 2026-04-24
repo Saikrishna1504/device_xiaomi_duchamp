@@ -13,3 +13,4 @@ vendor_public_prop(vendor_payment_security_prop)
 # MiuiCamera
 vendor_restricted_prop(vendor_display_type_prop)
 vendor_restricted_prop(vendor_us_proximity_prop)
+vendor_public_prop(vendor_camera_sensor_prop)
