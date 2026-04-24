@@ -1,0 +1,15 @@
+# MIUI Camera
+typeattribute platform_app hal_camera_client;
+typeattribute platform_app hal_graphics_allocator_client;
+typeattribute platform_app vendor_hal_citsensorservice_xiaomi_client;
+
+binder_call(platform_app, mtk_hal_camera)
+
+# Allow platform_app to read vendor camera properties
+get_prop(platform_app, vendor_mtk_camera_prop)
+get_prop(platform_app, vendor_camera_sensor_prop)
+get_prop(platform_app, vendor_display_type_prop)
+get_prop(platform_app, vendor_us_proximity_prop)
+
+# Allow access to camera data files
+r_dir_file(platform_app, vendor_camera_data_file)
