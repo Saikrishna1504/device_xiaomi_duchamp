@@ -48,5 +48,8 @@ ro.vendor.sensors.xiaomi.                      u:object_r:vendor_mtk_sensor_prop
 vendor.sys.thermal.                            u:object_r:vendor_thermal_prop:s0
 
 # Miuicamera
+vendor.camera.rgbw.rawdata.dump           u:object_r:vendor_camera_sensor_prop:s0
+vendor.camera.rgbw.fft.dump               u:object_r:vendor_camera_sensor_prop:s0
+vendor.camera.rgbw.fft.samplerate         u:object_r:vendor_camera_sensor_prop:s0
 ro.vendor.audio.us.proximity             u:object_r:vendor_us_proximity_prop:s0 exact bool
 ro.vendor.display.type                   u:object_r:vendor_display_type_prop:s0 exact string
