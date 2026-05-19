@@ -126,6 +126,9 @@
 #dynamic sensor
 /dev/hidraw*   0660 system system
 
+# PMQoS cpu_dma_latency for AxBurstEngine
+/dev/cpu_dma_latency                    0664   system     system
+
 #elliptic sensor
 /dev/elliptic0            0644   system     system
 /dev/elliptic1            0644   system     system

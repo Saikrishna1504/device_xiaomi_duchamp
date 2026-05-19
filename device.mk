@@ -92,7 +92,12 @@ PERF_DEFAULT_GOV := schedutil
 
 # AxBurstengine
 PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/configs/axion/ax_perf_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/ax_perf_config.xml
+    $(DEVICE_PATH)/configs/axion/ax_perf_boosts.xml:$(TARGET_COPY_OUT_VENDOR)/etc/ax_perf_boosts.xml \
+    $(DEVICE_PATH)/configs/axion/ax_perf_resources.xml:$(TARGET_COPY_OUT_VENDOR)/etc/ax_perf_resources.xml \
+    $(DEVICE_PATH)/configs/axion/ax_perf_thermal.xml:$(TARGET_COPY_OUT_VENDOR)/etc/ax_perf_thermal.xml \
+    $(DEVICE_PATH)/configs/axion/ax_perf_threads.xml:$(TARGET_COPY_OUT_VENDOR)/etc/ax_perf_threads.xml
+
+TARGET_DISABLES_LIBPERF := true
 
 # Bluetooth
 PRODUCT_PACKAGES += \

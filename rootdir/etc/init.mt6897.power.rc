@@ -26,6 +26,11 @@ on init
     write /dev/cpuset/system-background/cpus 0-3
     write /dev/cpuset/top-app/cpus 0-7
 
+    # AxBurstEngine custom cpusets
+    write /dev/cpuset/ax_foreground/cpus 0-7
+    write /dev/cpuset/h-background/cpus 0-3
+    write /dev/cpuset/l-background/cpus 0-2
+
     # adjust PCP high level
     write /proc/sys/vm/percpu_pagelist_high_fraction 430
 

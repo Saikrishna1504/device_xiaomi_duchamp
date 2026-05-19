@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <resource id="0x0001" name="cci_freq" path="/sys/kernel/cm_mgr/dbg_cm_mgr" default="0" />
+  <resource id="0x001a" name="task_turbo" path="/sys/module/task_turbo/parameters/feats" default="0" />
+  <resource id="0x0002" name="cpu_max_eff" path="/sys/devices/system/cpu/cpufreq/policy0/scaling_max_freq" default="2200000" />
+  <resource id="0x0003" name="cpu_max_mid" path="/sys/devices/system/cpu/cpufreq/policy4/scaling_max_freq" default="3200000" />
+  <resource id="0x001b" name="cpu_max_big" path="/sys/devices/system/cpu/cpufreq/policy7/scaling_max_freq" default="3350000" />
+  <resource id="0x0004" name="cpu_min_eff" path="/sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq" default="0" />
+  <resource id="0x0005" name="cpu_min_mid" path="/sys/devices/system/cpu/cpufreq/policy4/scaling_min_freq" default="0" />
+  <resource id="0x001c" name="cpu_min_big" path="/sys/devices/system/cpu/cpufreq/policy7/scaling_min_freq" default="0" />
+  <resource id="0x0006" name="dram_min_freq" path="/sys/devices/platform/soc/1c00f000.dvfsrc/mtk-dvfsrc-devfreq/devfreq/mtk-dvfsrc-devfreq/userspace/set_freq" default="0" />
+  <resource id="0x0007" name="gpu_boost_level" path="/sys/kernel/ged/hal/gpu_boost_level" default="0" />
+  <resource id="0x0008" name="gpu_custom_boost_freq" path="/sys/kernel/ged/hal/custom_boost_gpu_freq" default="0" />
+  <resource id="0x0009" name="gpu_custom_upbound_freq" path="/sys/kernel/ged/hal/custom_upbound_gpu_freq" default="0" />
+  <resource id="0x000a" name="gpu_dcs_mode" path="/sys/kernel/ged/hal/dcs_mode" default="0" />
+  <resource id="0x000b" name="gpu_dvfs_loading_mode" path="/sys/kernel/ged/hal/dvfs_loading_mode" default="0" />
+  <resource id="0x000c" name="gpu_dvfs_margin" path="/sys/kernel/ged/hal/timer_base_dvfs_margin" default="30" />
+  <resource id="0x000d" name="gpu_dvfs_step" path="/sys/kernel/ged/hal/loading_base_dvfs_step" default="103" />
+  <resource id="0x000e" name="gpu_pwr_level" path="/proc/gpufreqv2/fix_target_opp_index" default="0" />
+  <resource id="0x000f" name="mali_max_freq" path="/sys/class/devfreq/13000000.mali/max_freq" default="0" />
+  <resource id="0x0010" name="mali_min_freq" path="/sys/class/devfreq/13000000.mali/min_freq" default="0" />
+  <resource id="0x0011" name="pmqos_cpu_dma_latency" path="/dev/cpu_dma_latency" default="1000000" />
+  <resource id="0x0012" name="uclamp_fg_min" path="/dev/cpuctl/foreground/cpu.uclamp.min" default="0" />
+  <resource id="0x0013" name="uclamp_top_lat" path="/dev/cpuctl/top-app/cpu.uclamp.latency_sensitive" default="0" />
+  <resource id="0x0014" name="uclamp_top_min" path="/dev/cpuctl/top-app/cpu.uclamp.min" default="0" />
+  <resource id="0x0015" name="uclamp_fg_lat" path="/dev/cpuctl/foreground/cpu.uclamp.latency_sensitive" default="0" />
+  <resource id="0x0099" name="cpuset_h_bg_cpus" path="/dev/cpuset/h-background/cpus" default="0-3" />
+  <resource id="0x009a" name="cpuset_ax_fg_cpus" path="/dev/cpuset/ax_foreground/cpus" default="0-7" />
+  <resource id="0x009b" name="cpuset_dex2oat_cpus" path="/dev/cpuset/dex2oat/cpus" default="0-3" />
+</resources>

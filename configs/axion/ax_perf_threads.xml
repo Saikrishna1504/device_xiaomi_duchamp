@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<perf-config>
+    <ux_threads>
+        <role name="rt" uclamp_min="512" uclamp_max="1024"/>
+        <role name="ui" uclamp_min="384" uclamp_max="1024"/>
+        <role name="render" uclamp_min="512" uclamp_max="1024"/>
+        <role name="gl" uclamp_min="384" uclamp_max="900"/>
+        <role name="hwui_task" uclamp_min="256" uclamp_max="800"/>
+        <role name="binder_pool" uclamp_min="200" uclamp_max="700"/>
+    </ux_threads>
+</perf-config>
