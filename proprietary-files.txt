@@ -1445,7 +1445,7 @@ vendor/etc/init/hw/init.mtkgki.rc
 odm/bin/mtd_mitee
 odm/etc/init/vendor.xiaomi.hardware.aidl.mtdservice-miteeservice.rc
 odm/etc/vintf/manifest/manifest_vendor.xiaomi.hardware.aidl.mtdservice.xml
-odm/lib64/libmt_mitee.so
+odm/lib64/libmt_mitee.so;DISABLE_DEPS
 vendor/lib64/vendor.xiaomi.hardware.aidl.mtdservice-V1-ndk.so
 
 # Neural Networks
