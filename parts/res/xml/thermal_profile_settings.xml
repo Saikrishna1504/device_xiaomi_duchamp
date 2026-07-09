@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/thermalprofile_title">
+
+    <!-- Radio-style profile selector -->
+    <PreferenceCategory android:key="thermal_profile_category">
+
+        <Preference
+            android:key="thermal_profile_default"
+            android:title="@string/thermalprofile_default"
+            android:persistent="false" />
+
+        <Preference
+            android:key="thermal_profile_performance"
+            android:title="@string/thermalprofile_performance"
+            android:persistent="false" />
+
+        <Preference
+            android:key="thermal_profile_battery"
+            android:title="@string/thermalprofile_battery"
+            android:persistent="false" />
+
+        <Preference
+            android:key="thermal_profile_game"
+            android:title="@string/thermalprofile_game"
+            android:persistent="false" />
+
+    </PreferenceCategory>
+
+    <!-- Auto Mode -->
+    <PreferenceCategory android:key="thermal_auto_category">
+
+        <SwitchPreferenceCompat
+            android:key="thermal_auto_mode"
+            android:title="@string/thermalprofile_auto_mode_title"
+            android:summary="@string/thermalprofile_auto_mode_summary"
+            android:defaultValue="false" />
+
+        <Preference
+            android:key="thermal_auto_mode_note"
+            android:title="@string/thermalprofile_auto_mode_note"
+            android:selectable="false"
+            android:enabled="false" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
