@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2020 The LineageOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- Xiaomi Settings -->
+    <string name="app_title">Xiaomi Settings</string>
+    <string name="tile_add">Add tile</string>
+    <string name="tile_added">Tile added</string>
+    <string name="tile_not_added">Tile not added</string>
+    <string name="tile_already_added">Tile already added</string>
+    <string name="tile_on">On</string>
+    <string name="tile_off">Off</string>
+
+    <!-- Thermal Profile -->
+    <string name="thermalprofile_title">Thermal profile</string>
+    <string name="thermalprofile_summary">Manage CPU/GPU thermal behaviour</string>
+    <string name="thermalprofile_default">Balanced</string>
+    <string name="thermalprofile_performance">Performance</string>
+    <string name="thermalprofile_battery">Battery Saver</string>
+    <string name="thermalprofile_game">Game</string>
+    <string name="thermalprofile_unknown">Unknown</string>
+    <string name="thermalprofile_auto_mode_title">Enable Auto Mode</string>
+    <string name="thermalprofile_auto_mode_summary">Automatically switch to Battery Saver mode when screen turns off and restore previous mode when screen turns on.</string>
+    <string name="thermalprofile_auto_mode_note">Note: Higher Boost frequencies (GPU over 740MHz and CPU boost frequencies) are available only in Game and Performance mode.</string>
+    <string name="thermalprofile_current_mode">Current mode</string>
+</resources>
