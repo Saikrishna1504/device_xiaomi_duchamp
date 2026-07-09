@@ -164,8 +164,12 @@ on property:sys.boot_completed=1
     # Configure DVFS
     write /sys/kernel/ged/hal/dvfs_margin_value 130
 
-    # Set thermal mode to mgame
-    write /sys/devices/virtual/thermal/thermal_message/sconfig 19
+# Thermal Profiles permissions
+    chmod 0664 /sys/class/thermal/thermal_message/sconfig
+    chown system system /sys/class/thermal/thermal_message/sconfig
+
+    # Set thermal mode to thermalpernormal
+    write /sys/devices/virtual/thermal/thermal_message/sconfig 50
 
     # Enable PowerHAL hint processing
     setprop vendor.powerhal.init 1

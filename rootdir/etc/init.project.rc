@@ -16,7 +16,6 @@ on post-fs-data
     # Thermal
     mkdir /data/vendor/thermal 0771 root system
     mkdir /data/vendor/thermal/config 0771 root system
-    chown system system /sys/class/thermal/thermal_message/sconfig
     chown system system /sys/class/thermal/thermal_message/market_download_limit
     chown system system /sys/class/thermal/thermal_message/boost
     chown system system /sys/class/thermal/thermal_message/temp_state
@@ -67,6 +66,10 @@ on boot
     # camera flash led
     chown system system /sys/class/flashlight_core/flashlight/torchbrightness
     chmod 0664 /sys/class/flashlight_core/flashlight/torchbrightness
+
+    # Thermal Profiles permissions
+    chmod 0664 /sys/class/thermal/thermal_message/sconfig
+    chown system system /sys/class/thermal/thermal_message/sconfig
 
 # charger
 on boot && property:ro.product.device=duchamp && property:ro.boot.hwc=GL
