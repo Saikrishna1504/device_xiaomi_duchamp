@@ -1,2 +1,7 @@
 hal_client_domain(system_app, hal_mlipay)
 hal_client_domain(system_app, vendor_hal_displayfeature)
+
+# Thermal Profiles
+allow system_app sysfs_therm:dir search;
+allow system_app sysfs_therm:file { write };
+allow system_app sysfs_therm:file { getattr open read };

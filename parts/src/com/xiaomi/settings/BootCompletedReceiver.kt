@@ -13,7 +13,11 @@ import android.hardware.display.DisplayManager;
 import android.util.Log
 import android.view.Display;
 import android.view.Display.HdrCapabilities;
+import androidx.preference.PreferenceManager
 import com.xiaomi.settings.display.ColorService
+import com.xiaomi.settings.thermal.ThermalAutoModeService
+import com.xiaomi.settings.thermal.ThermalProfileFragment
+import com.xiaomi.settings.utils.FileUtils
 
 class BootCompletedReceiver : BroadcastReceiver() {
 
@@ -35,6 +39,15 @@ class BootCompletedReceiver : BroadcastReceiver() {
                 HdrCapabilities.HDR_TYPE_HDR10_PLUS
             )
         )
+
+        // Restore thermal profile from SharedPreferences
+        restoreThermalProfile(context)
+
+        // Re-start the auto mode service if it was enabled before reboot
+        if (PreferenceManager.getDefaultSharedPreferences(context)
+                .getBoolean(ThermalProfileFragment.PREF_AUTO_MODE, false)) {
+            context.startService(Intent(context, ThermalAutoModeService::class.java))
+        }
     }
 
     private fun onBootCompleted(context: Context) {
@@ -43,6 +56,17 @@ class BootCompletedReceiver : BroadcastReceiver() {
     private fun onLockedBootCompleted(context: Context) {
         // Display
         ColorService.startService(context)
+    }
+
+    private fun restoreThermalProfile(context: Context) {
+        val storedValue = PreferenceManager.getDefaultSharedPreferences(context)
+            .getString(
+                ThermalProfileFragment.PREF_THERMAL_PROFILE,
+                ThermalProfileFragment.THERMAL_PROFILE_DEFAULT.toString()
+            )
+        val profile = storedValue?.toIntOrNull() ?: ThermalProfileFragment.THERMAL_PROFILE_DEFAULT
+        FileUtils.writeLine(ThermalProfileFragment.THERMAL_PROFILE_PATH, profile)
+        if (DEBUG) Log.d(TAG, "Restored thermal profile: $profile")
     }
 
     companion object {
