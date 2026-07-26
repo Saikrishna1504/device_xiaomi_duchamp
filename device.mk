@@ -151,6 +151,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/configs/permissions/privapp-permissions-miuicamera.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-permissions-miuicamera.xml
 
+# MTK GED
+$(call soong_config_set_bool,libgui,support_mtk_ged_kpi,true)
+
 # Lineage Health
 $(call soong_config_set,lineage_health,charging_control_charging_path,/sys/class/power_supply/battery/input_suspend)
 $(call soong_config_set,lineage_health,charging_control_charging_enabled,0)
