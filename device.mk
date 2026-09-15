@@ -126,6 +126,7 @@ PRODUCT_VENDOR_LINKER_CONFIG_FRAGMENTS += \
     $(LOCAL_PATH)/configs/linker.config.json
 
 # Fastbootd
+$(call soong_config_set_bool,fastbootd,bypass_lock_state,true)
 PRODUCT_PACKAGES += \
     fastbootd
 
