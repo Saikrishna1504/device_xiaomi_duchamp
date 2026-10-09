@@ -1,0 +1,4 @@
+binder_call(vendor_hal_citsensorservice_xiaomi_client, vendor_hal_citsensorservice_xiaomi_server)
+binder_call(vendor_hal_citsensorservice_xiaomi_server, vendor_hal_citsensorservice_xiaomi_client)
+
+allow vendor_hal_citsensorservice_xiaomi_client hal_sensors_service:service_manager find;
