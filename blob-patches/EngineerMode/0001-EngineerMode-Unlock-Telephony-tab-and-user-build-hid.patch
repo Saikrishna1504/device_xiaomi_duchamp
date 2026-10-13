@@ -1,0 +1,194 @@
+From f53274ce2dec1ac6a00f2a4973d69e9a39a385ae Tue Oct 13 00:00:00 2026
+From: Saikrishna1504 <saikrishna26918@gmail.com>
+Date: Tue, 13 Oct 2026 20:07:40 +0000
+Subject: [PATCH 1/2] EngineerMode: Unlock Telephony tab and user-build hidden
+ features
+
+Change-Id: I4b00d0909be7da3aa97fcee50604d8b8b3187b7c
+---
+ .../mediatek/engineermode/EngineerMode.smali  |  18 +--
+ .../engineermode/FeatureSupport.smali         | 114 ++----------------
+ 2 files changed, 9 insertions(+), 123 deletions(-)
+
+diff --git a/smali_classes2/com/mediatek/engineermode/EngineerMode.smali b/smali_classes2/com/mediatek/engineermode/EngineerMode.smali
+index 073d449..cafc91c 100644
+--- a/smali_classes2/com/mediatek/engineermode/EngineerMode.smali
++++ b/smali_classes2/com/mediatek/engineermode/EngineerMode.smali
+@@ -539,25 +539,9 @@
+ 
+     .line 190
+     :cond_0
+-    const-string v2, "ro.debuggable"
++    const/4 v2, 0x0
+ 
+     const/4 v3, 0x0
+-
+-    invoke-static {v2, v3}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
+-
+-    move-result v2
+-
+-    if-nez v2, :cond_1
+-
+-    move v2, v1
+-
+-    goto :goto_0
+-
+-    :cond_1
+-    move v2, v3
+-
+-    .line 191
+-    .local v2, "nonDebuggable":Z
+     :goto_0
+     sget-boolean v4, Lcom/mediatek/engineermode/EngineerMode;->sWifiOnly:Z
+ 
+diff --git a/smali_classes2/com/mediatek/engineermode/FeatureSupport.smali b/smali_classes2/com/mediatek/engineermode/FeatureSupport.smali
+index 7dde73a..7afd11c 100644
+--- a/smali_classes2/com/mediatek/engineermode/FeatureSupport.smali
++++ b/smali_classes2/com/mediatek/engineermode/FeatureSupport.smali
+@@ -698,20 +698,9 @@
+ .end method
+ 
+ .method public static isEngLoad()Z
+-    .locals 2
+-
+-    .line 169
+-    const-string v0, "ro.build.type"
+-
+-    invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+-
+-    move-result-object v0
+-
+-    const-string v1, "eng"
+-
+-    invoke-virtual {v1, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
++    .locals 1
+ 
+-    move-result v0
++    const/4 v0, 0x1
+ 
+     return v0
+ .end method
+@@ -872,47 +861,9 @@
+ .end method
+ 
+ .method public static isRootLoad()Z
+-    .locals 3
+-
+-    .line 178
+-    new-instance v0, Ljava/lang/StringBuilder;
+-
+-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+-
+-    const-string v1, "FK_ROOT_TYPE:"
+-
+-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+-
+-    move-result-object v0
+-
+-    const-string v1, "ro.debuggable"
+-
+-    invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+-
+-    move-result-object v2
+-
+-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+-
+-    move-result-object v0
+-
+-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+-
+-    move-result-object v0
+-
+-    const-string v2, "FeatureSupport"
+-
+-    invoke-static {v2, v0}, Lcom/mediatek/engineermode/Elog;->i(Ljava/lang/String;Ljava/lang/String;)V
+-
+-    .line 179
+-    const-string v0, "1"
+-
+-    invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+-
+-    move-result-object v1
+-
+-    invoke-virtual {v0, v1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
++    .locals 1
+ 
+-    move-result v0
++    const/4 v0, 0x1
+ 
+     return v0
+ .end method
+@@ -1033,66 +984,17 @@
+ .end method
+ 
+ .method public static isUserDebugLoad()Z
+-    .locals 2
+-
+-    .line 184
+-    const-string v0, "ro.build.type"
+-
+-    invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+-
+-    move-result-object v0
+-
+-    const-string v1, "userdebug"
+-
+-    invoke-virtual {v1, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
++    .locals 1
+ 
+-    move-result v0
++    const/4 v0, 0x1
+ 
+     return v0
+ .end method
+ 
+ .method public static isUserLoad()Z
+-    .locals 3
+-
+-    .line 173
+-    new-instance v0, Ljava/lang/StringBuilder;
+-
+-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+-
+-    const-string v1, "FK_BUILD_TYPE:"
+-
+-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+-
+-    move-result-object v0
+-
+-    const-string v1, "ro.build.type"
+-
+-    invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+-
+-    move-result-object v2
+-
+-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+-
+-    move-result-object v0
+-
+-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+-
+-    move-result-object v0
+-
+-    const-string v2, "FeatureSupport"
+-
+-    invoke-static {v2, v0}, Lcom/mediatek/engineermode/Elog;->i(Ljava/lang/String;Ljava/lang/String;)V
+-
+-    .line 174
+-    const-string v0, "user"
+-
+-    invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+-
+-    move-result-object v1
+-
+-    invoke-virtual {v0, v1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
++    .locals 1
+ 
+-    move-result v0
++    const/4 v0, 0x0
+ 
+     return v0
+ .end method
+-- 
+2.43.0
+

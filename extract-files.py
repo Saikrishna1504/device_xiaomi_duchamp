@@ -219,6 +219,9 @@ blob_fixups: blob_fixups_user_type = {
         .add_needed('libgui_shim_miuicamera.so')
         .binary_regex_replace(b'\x08\xad\x40\xf9', b'\x08\xa9\x40\xf9'),
 
+    'system_ext/app/EngineerMode/EngineerMode.apk': blob_fixup()
+        .apktool_patch('blob-patches/EngineerMode/'),
+
      'system_ext/priv-app/MiuiCamera/MiuiCamera.apk': blob_fixup()
         .apktool_patch('blob-patches/MIUICamera/'),
 

@@ -1,0 +1,44 @@
+From 38ac3261f918da6ffa5c1369784aa26335b4b37d Tue Oct 13 00:00:00 2026
+From: Saikrishna1504 <saikrishna26918@gmail.com>
+Date: Tue, 13 Oct 2026 20:21:52 +0000
+Subject: [PATCH 2/2] EngineerMode: Bypass developer options check
+
+Change-Id: Ia7ec4326020d02dec8617c50d122bd5a487f208d
+---
+ .../mediatek/engineermode/EngineerMode.smali  | 19 -------------------
+ 1 file changed, 19 deletions(-)
+
+diff --git a/smali_classes2/com/mediatek/engineermode/EngineerMode.smali b/smali_classes2/com/mediatek/engineermode/EngineerMode.smali
+index cafc91c..d3d16a1 100644
+--- a/smali_classes2/com/mediatek/engineermode/EngineerMode.smali
++++ b/smali_classes2/com/mediatek/engineermode/EngineerMode.smali
+@@ -633,26 +633,7 @@
+ 
+     .line 117
+     :cond_1
+-    invoke-virtual {p0}, Lcom/mediatek/engineermode/EngineerMode;->getContentResolver()Landroid/content/ContentResolver;
+-
+-    move-result-object v1
+-
+-    const-string v2, "development_settings_enabled"
+-
+     const/4 v3, 0x0
+-
+-    invoke-static {v1, v2, v3}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+-
+-    move-result v1
+-
+-    if-eqz v1, :cond_2
+-
+-    goto :goto_0
+-
+-    :cond_2
+-    move v0, v3
+-
+-    :goto_0
+     iput-boolean v0, p0, Lcom/mediatek/engineermode/EngineerMode;->mLastEnabledState:Z
+ 
+     .line 119
+-- 
+2.43.0
+
