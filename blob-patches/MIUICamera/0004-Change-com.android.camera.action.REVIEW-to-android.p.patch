@@ -1,33 +1,32 @@
-From 2c83a533b252165c1fd66b9df0d3bb0e695031c6 Mon Sep 17 00:00:00 2001
-From: Arian <arian.kulmer@web.de>
-Date: Thu, 27 Mar 2025 05:20:20 +0000
-Subject: [PATCH] Change com.android.camera.action.REVIEW to
- android.provider.action.REVIEW This is the standard intent for review actions
+From 683b09ff28f3fb80e5d3952d969341d2149ad43a Tue Oct 13 00:00:00 2026
+From: Saikrishna1504 <saikrishna26918@gmail.com>
+Date: Tue, 13 Oct 2026 19:20:15 +0000
+Subject: [PATCH 4/5] Change com.android.camera.action.REVIEW to
+ android.provider.action.REVIEW
 
-Signed-off-by: Saikrishna1504 <saikrishna26918@gmail.com>
+Change-Id: Ie32923ee6f99c43764ece12a5167eb6a3c76afba
 ---
- smali/com/android/camera/w3.smali | 4 ++--
+ smali/A/c3.smali | 4 ++--
  1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/smali/com/android/camera/w3.smali b/smali/com/android/camera/w3.smali
-index 1cfa2eb69..c3dcd8016 100644
---- a/smali/com/android/camera/w3.smali
-+++ b/smali/com/android/camera/w3.smali
-@@ -1136,7 +1136,7 @@
+diff --git a/smali/A/c3.smali b/smali/A/c3.smali
+index 2fbb7545..89be5ce9 100644
+--- a/smali/A/c3.smali
++++ b/smali/A/c3.smali
+@@ -86,5 +86,5 @@
+     const/4 v4, 0x0
  
-     move-result p0
+-    const-string v5, "com.android.camera.action.REVIEW"
++    const-string v5, "android.provider.action.REVIEW"
  
--    const-string v0, "com.android.camera.action.REVIEW"
-+    const-string v0, "android.provider.action.REVIEW"
+     if-eqz v1, :cond_0
+@@ -130,5 +130,5 @@
+     new-array v1, v4, [Ljava/lang/Object;
  
-     if-eqz p0, :cond_0
+-    const-string v6, "gotoGallery: com.android.camera.action.REVIEW"
++    const-string v6, "gotoGallery: android.provider.action.REVIEW"
  
-@@ -1197,7 +1197,7 @@
- 
-     const-string p1, "GalleryHelper"
- 
--    const-string v1, "gotoGallery: com.android.camera.action.REVIEW"
-+    const-string v1, "gotoGallery: android.provider.action.REVIEW"
- 
-     invoke-static {p1, v1, p0}, Lcom/android/camera/log/Log;->d(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V
- 
+     invoke-static {v3, v6, v1}, Lcom/android/camera/log/Log;->d(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V
+-- 
+2.43.0
+

@@ -13,3 +13,5 @@ get_prop(platform_app, vendor_us_proximity_prop)
 
 # Allow access to camera data files
 r_dir_file(platform_app, vendor_camera_data_file)
+
+dontaudit platform_app unlabeled:filesystem getattr;

@@ -12,3 +12,8 @@ get_prop(mtk_hal_camera, vendor_camera_sensor_prop)
 
 binder_call(mtk_hal_camera, platform_app)
 allow mtk_hal_camera platform_app:fd use;
+
+hal_client_domain(mtk_hal_camera, hal_neuralnetworks)
+
+dontaudit mtk_hal_camera default_prop:file read;
+dontaudit mtk_hal_camera unlabeled:filesystem getattr;

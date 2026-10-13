@@ -1,0 +1,26 @@
+From 5e8c1658be648978e0887672d6c4bb768e92c4b2 Tue Oct 13 00:00:00 2026
+From: Saikrishna1504 <saikrishna26918@gmail.com>
+Date: Tue, 13 Oct 2026 19:20:20 +0000
+Subject: [PATCH 5/5] Suppress permission error toast
+
+Change-Id: Ia1b8a0c083b1bc5bf59873736d9a1af3d0359d97
+---
+ smali/com/android/camera/ActivityBase$c.smali | 4 ----
+ 1 file changed, 4 deletions(-)
+
+diff --git a/smali/com/android/camera/ActivityBase$c.smali b/smali/com/android/camera/ActivityBase$c.smali
+index b43f325b..b96cccd2 100644
+--- a/smali/com/android/camera/ActivityBase$c.smali
++++ b/smali/com/android/camera/ActivityBase$c.smali
+@@ -80,8 +80,4 @@
+ 
+     :pswitch_1
+-    const p1, 0x7f140af4
+-
+-    invoke-static {p0, p1, v6}, LA/g4;->c(Landroid/content/Context;IZ)V
+-
+     goto/16 :goto_1
+ 
+-- 
+2.43.0
+
