@@ -47,6 +47,9 @@ blob_fixups: blob_fixups_user_type = {
     'vendor/lib64/hw/android.hardware.soundtrigger3-impl.so': blob_fixup()
         .replace_needed('libaudio_aidl_conversion_common_ndk.so', 'libaudio_aidl_conversion_common_ndk-v34.so'),
 
+    'vendor/lib64/android.hardware.bluetooth.audio-impl-mediatek.so': blob_fixup()
+        .add_needed('libbluetooth_audio_session_aidl_mtk_shim.so'),
+
     'vendor/lib64/vendor.mediatek.hardware.bluetooth.audio-V1-ndk.so': blob_fixup()
         .replace_needed('android.hardware.audio.common-V1-ndk.so', 'android.hardware.audio.common-V2-ndk.so'),
 
