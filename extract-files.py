@@ -230,6 +230,9 @@ blob_fixups: blob_fixups_user_type = {
 
     'vendor/etc/init/tee-supplicant.rc': blob_fixup()
         .regex_replace('chown system system /dev/ufs-bsg0', 'chown root system /dev/ufs-bsg0'),
+
+    'vendor/lib64/liboemcrypto.so': blob_fixup()
+        .add_needed('liboemcrypto_shim.so'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(

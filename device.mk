@@ -121,7 +121,8 @@ PRODUCT_PACKAGES += \
 
 # DRM
 PRODUCT_PACKAGES += \
-    com.android.hardware.drm.clearkey
+    com.android.hardware.drm.clearkey \
+    liboemcrypto_shim
 
 PRODUCT_VENDOR_LINKER_CONFIG_FRAGMENTS += \
     $(LOCAL_PATH)/configs/linker.config.json

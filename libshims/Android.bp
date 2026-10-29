@@ -15,3 +15,9 @@ cc_library_shared {
     shared_libs: ["libdl"],
     vendor: true,
 }
+
+cc_library_shared {
+    name: "liboemcrypto_shim",
+    srcs: ["liboemcrypto_shim.cpp"],
+    vendor: true,
+}
