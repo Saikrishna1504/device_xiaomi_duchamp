@@ -161,7 +161,6 @@ gz_log_mod.ko
 tmem_ffa.ko
 mtk_sec_heap.ko
 mtk_heap_debug.ko
-mtk_heap_refill.ko
 sapu.ko
 iommu_test.ko
 camera_af_media.ko
