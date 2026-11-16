@@ -16,6 +16,7 @@ from extract_utils.main import (
     ExtractUtils,
     ExtractUtilsModule,
 )
+from extract_utils.utils import run_cmd
 
 namespace_imports = [
     'device/xiaomi/duchamp',
@@ -225,8 +226,9 @@ blob_fixups: blob_fixups_user_type = {
     'system_ext/app/EngineerMode/EngineerMode.apk': blob_fixup()
         .apktool_patch('blob-patches/EngineerMode/'),
 
-     'system_ext/priv-app/MiuiCamera/MiuiCamera.apk': blob_fixup()
-        .apktool_patch('blob-patches/MIUICamera/'),
+    'system_ext/priv-app/MiuiCamera/MiuiCamera.apk': blob_fixup()
+        .apktool_patch('blob-patches/MIUICamera/')
+        .call(lambda ctx, file, file_path, *args, **kwargs: run_cmd(['split', '--bytes=20M', '-d', file_path, f'{file_path}.part'])),
 
     'vendor/etc/init/tee-supplicant.rc': blob_fixup()
         .regex_replace('chown system system /dev/ufs-bsg0', 'chown root system /dev/ufs-bsg0'),
